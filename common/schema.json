@@ -1,573 +1,573 @@
 {
-  '$schema' : 'https://crypti.ca/schema#',
-  'id' : '#cryptica',
-  'type' : 'object',
-  'properties' : {
+  "$schema" : "https://crypti.ca/schema#",
+  "id" : "#cryptica",
+  "type" : "object",
+  "properties" : {
 
-    'User' : {
-      'id' : '#User',
-      'type' : 'object',
-      'properties' :  {
-        'id' : {'type' : 'string', 'format' : 'regex:[0-9A-F]{32}'},
-        'name' : {'type' : 'string'},
-        'fullName' : {'type' : 'string', 'required' : false},
-        'emailAddress' : {'type' : 'string', 'required' : false, 'description' : '[for email notifications]'},
-        'clientLoginToken' : {'type' : 'string', 'description' : '[TODO]'},
-        'signingKeyRing' : {'type' : 'array', 'items': {'$ref' : 'KeyPair'}},
-        'encryptionKeyRing' : {'type' : 'array', 'items': {'$ref' : 'KeyPair'}},
-        'masterKey' : {
-          '$ref' : 'PasswordEncrypedSymmetricKey',
-          'description' : 'symmetric key used to encrypt private keys'
-        }, 
-        'opportunisticKeySignatures' : {
-          'type' : 'array',
-          'description' : 'signatures of peer keys',
-          'items': {'$ref' : 'KeySignature'}
+    "User" : {
+      "id" : "#User",
+      "type" : "object",
+      "properties" :  {
+        "id" : {"type" : "string", "format" : "regex:[0-9A-F]{32}"},
+        "name" : {"type" : "string"},
+        "fullName" : {"type" : "string", "required" : false},
+        "emailAddress" : {"type" : "string", "required" : false, "description" : "[for email notifications]"},
+        "clientLoginToken" : {"type" : "string", "description" : "[TODO]"},
+        "signingKeyRing" : {"type" : "array", "items": {"$ref" : "KeyPair"}},
+        "encryptionKeyRing" : {"type" : "array", "items": {"$ref" : "KeyPair"}},
+        "masterKey" : {
+          "$ref" : "PasswordEncrypedSymmetricKey",
+          "description" : "symmetric key used to encrypt private keys"
         },
-        'eventLog' : {
-          'type' : 'array',
-          'description' : 'list of changes to account',
-          'items' : {'$ref' : 'Event'}
+        "opportunisticKeySignatures" : {
+          "type" : "array",
+          "description" : "signatures of peer keys",
+          "items": {"$ref" : "KeySignature"}
+        },
+        "eventLog" : {
+          "type" : "array",
+          "description" : "list of changes to account",
+          "items" : {"$ref" : "Event"}
         }
       }
     },
-    
-    'PublicUser' : {
-      'id' : '#PublicUser',
-      'type' : 'object',
-      'description' : '[TODO: everything in User with private stuff stripped out]'
+
+    "PublicUser" : {
+      "id" : "#PublicUser",
+      "type" : "object",
+      "description" : "[TODO: everything in User with private stuff stripped out]"
     },
-    
-    'KeyPair' : {
-      'id' : '#KeyPair',
-      'type' : 'object',
-      'properties' : {
-        'publicKey' : {
-          'type' : 'string',
-          'contentEncoding' : 'Content-Transfer-Encoding:base64',
-          'maxLength' : '[TODO]'
+
+    "KeyPair" : {
+      "id" : "#KeyPair",
+      "type" : "object",
+      "properties" : {
+        "publicKey" : {
+          "type" : "string",
+          "contentEncoding" : "Content-Transfer-Encoding:base64",
+          "maxLength" : "[TODO]"
         },
-        'encryptedPrivateKey' : {'$ref' : 'SymmetricKeyEncryptedPrivateKey'}
+        "encryptedPrivateKey" : {"$ref" : "SymmetricKeyEncryptedPrivateKey"}
       }
     },
-    
-    'PasswordEncrypedSymmetricKey' : {
-      'id' : '#PasswordEncrypedSymmetricKey',
-      'type' : 'object',
-      'description' : '[TODO]'
+
+    "PasswordEncrypedSymmetricKey" : {
+      "id" : "#PasswordEncrypedSymmetricKey",
+      "type" : "object",
+      "description" : "[TODO]"
     },
-    
-    'SymmetricKeyEncryptedPrivateKey' : {
-      'id' : '#SymmetricKeyEncryptedPrivateKey',
-      'type' : 'object',
-      'description' : '[TODO]'
+
+    "SymmetricKeyEncryptedPrivateKey" : {
+      "id" : "#SymmetricKeyEncryptedPrivateKey",
+      "type" : "object",
+      "description" : "[TODO]"
     },
-    
-    'SymmetricKeyEncryptedSymmetricKey' : {
-      'id' : '#SymmetricKeyEncryptedSymmetricKey',
-      'type' : 'object',
-      'description' : '[TODO]'
+
+    "SymmetricKeyEncryptedSymmetricKey" : {
+      "id" : "#SymmetricKeyEncryptedSymmetricKey",
+      "type" : "object",
+      "description" : "[TODO]"
     },
-    
-    'PublicKeyEncryptedSymmetricKey' : {
-      'id' : '#PublicKeyEncryptedSymmetricKey',
-      'type' : 'object',
-      'description' : '[TODO]'
+
+    "PublicKeyEncryptedSymmetricKey" : {
+      "id" : "#PublicKeyEncryptedSymmetricKey",
+      "type" : "object",
+      "description" : "[TODO]"
     },
-    
-    'SymmetricKeyEncryptedValue' : {
-      'id' : '#SymmetricKeyEncryptedValue',
-      'type' : 'object',
-      'description' : '[TODO]'
+
+    "SymmetricKeyEncryptedValue" : {
+      "id" : "#SymmetricKeyEncryptedValue",
+      "type" : "object",
+      "description" : "[TODO]"
     },
-    
-    'KeySignature' : {
-      'id' : '#KeySignature',
-      'type' : 'object',
-      'properties' : {
-        'signedUserID' : {
-          'type' : 'string',
-          'format' : 'regex:[0-9A-F]{32}',
-          'description' : 'peer whos key was signed'
+
+    "KeySignature" : {
+      "id" : "#KeySignature",
+      "type" : "object",
+      "properties" : {
+        "signedUserID" : {
+          "type" : "string",
+          "format" : "regex:[0-9A-F]{32}",
+          "description" : "peer whos key was signed"
         },
-        'signedKey' : {
-          'type' : 'string',
-          'contentEncoding' : 'Content-Transfer-Encoding:base64',
-          'maxLength' : '[TODO]',
-          'description' : 'reference via hash of peers public key'
+        "signedKey" : {
+          "type" : "string",
+          "contentEncoding" : "Content-Transfer-Encoding:base64",
+          "maxLength" : "[TODO]",
+          "description" : "reference via hash of peers public key"
         },
-        'signature' : {'$ref' : 'Signature'}
+        "signature" : {"$ref" : "Signature"}
       }
     },
-    
-    'Signature' : {
-      'id' : '#Signature',
-      'type' : 'object',
-      'properties' : {
-        'signingUserID' : {
-          'type' : 'string',
-          'format' : 'regex:[0-9A-F]{32}',
-          'description' : 'references an existing user ID'
+
+    "Signature" : {
+      "id" : "#Signature",
+      "type" : "object",
+      "properties" : {
+        "signingUserID" : {
+          "type" : "string",
+          "format" : "regex:[0-9A-F]{32}",
+          "description" : "references an existing user ID"
         },
-        'signingKeyID' : {
-          'type' : 'string',
-          'format' : 'regex:[0-9A-F]{32}',
-          'description' : 'reference via hash of user’s public key'
+        "signingKeyID" : {
+          "type" : "string",
+          "format" : "regex:[0-9A-F]{32}",
+          "description" : "reference via hash of user’s public key"
         },
-        'hash' : {
-          'type' : 'string',
-          'contentEncoding' : 'Content-Transfer-Encoding:base64',
-          'maxLength' : '[TODO]'
+        "hash" : {
+          "type" : "string",
+          "contentEncoding" : "Content-Transfer-Encoding:base64",
+          "maxLength" : "[TODO]"
         },
-        'scope' : {
-          'type' : 'string',
-          'description' : 'confirmation of what hash covers, e.g., userID x up to event timestamp Y'
+        "scope" : {
+          "type" : "string",
+          "description" : "confirmation of what hash covers, e.g., userID x up to event timestamp Y"
         },
-        'signature' : {
-          'type' : 'string',
-          'contentEncoding' : 'Content-Transfer-Encoding:base64',
-          'maxLength' : '[TODO]',
-          'description' : 'digital signature'
+        "signature" : {
+          "type" : "string",
+          "contentEncoding" : "Content-Transfer-Encoding:base64",
+          "maxLength" : "[TODO]",
+          "description" : "digital signature"
         }
       }
     },
-    
-    'Event' : {
-      'id' : '#Event',
-      'type' : 'object',
-      'description' : 'digitally signed change to an object',
-      'properties' : {
-        'timestamp' : {
-          'type' : 'string',
-          'format' : 'date-time'
+
+    "Event" : {
+      "id" : "#Event",
+      "type" : "object",
+      "description" : "digitally signed change to an object",
+      "properties" : {
+        "timestamp" : {
+          "type" : "string",
+          "format" : "date-time"
         },
-        'description' : {
-          'type' : 'string',
-          'description' : 'e.g., text description of what changed'
+        "description" : {
+          "type" : "string",
+          "description" : "e.g., text description of what changed"
         },
-        'signature' : {
-          '$ref' : 'Signature',
-          'description' : 'signature of entire object, including previous events'
+        "signature" : {
+          "$ref" : "Signature",
+          "description" : "signature of entire object, including previous events"
         }
       }
     },
-    
-    'Group' : {
-      'id' : '#Group',
-      'type' : 'object',
-      'properties' : {
-        'id' : {'type' : 'string', 'format' : 'regex:regex:[0-9A-F]{32}'},
-        'encryptedName' : {'$ref' : 'SymmetricKeyEncryptedValue'},
-        'encryptionKeyRing' : {
-          'type' : 'array',
-          'items': {'$ref' : 'KeyPair'}
+
+    "Group" : {
+      "id" : "#Group",
+      "type" : "object",
+      "properties" : {
+        "id" : {"type" : "string", "format" : "regex:regex:[0-9A-F]{32}"},
+        "encryptedName" : {"$ref" : "SymmetricKeyEncryptedValue"},
+        "encryptionKeyRing" : {
+          "type" : "array",
+          "items": {"$ref" : "KeyPair"}
         },
-        'members' : {
-          'type' : 'array',
-          'items' : {
-            'type' : 'object',
-            'name' : 'GroupMembership',
-            'userID' : {
-              'type' : 'string',
-              'format' : 'regex:regex:[0-9A-F]{32}'
+        "members" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "name" : "GroupMembership",
+            "userID" : {
+              "type" : "string",
+              "format" : "regex:regex:[0-9A-F]{32}"
             },
-            'accessLevel' : {
-              'type' : 'string',
-              'enum' : ['owner', 'member']
+            "accessLevel" : {
+              "type" : "string",
+              "enum" : ["owner", "member"]
             },
-            'encryptedGroupKey' : {'$ref' : 'PublicKeyEncryptedSymmtricKey'}
+            "encryptedGroupKey" : {"$ref" : "PublicKeyEncryptedSymmtricKey"}
           }
         },
-        'eventLog' : {
-          'type' : 'array',
-          'description' : 'list of changes to group',
-          'items' : {'$ref' : 'Event'}
+        "eventLog" : {
+          "type" : "array",
+          "description" : "list of changes to group",
+          "items" : {"$ref" : "Event"}
         }
       }
     },
-    
-    'Discussion' : {
-      'id' : '#Discussion',
-      'type' : 'object',
-      'properties' : {
-        'id' : {'type' : 'string', 'format' : 'regex:regex:[0-9A-F]{32}'},
-        'encryptedName' : {'$ref' : 'SymmetricKeyEncryptedValue'},
-        'encryptedDiscussionKeys' : {
-          'type' : 'array',
-          'items': {'$ref' : 'SymmetricKeyEncryptedSymmetricKey'}
+
+    "Discussion" : {
+      "id" : "#Discussion",
+      "type" : "object",
+      "properties" : {
+        "id" : {"type" : "string", "format" : "regex:regex:[0-9A-F]{32}"},
+        "encryptedName" : {"$ref" : "SymmetricKeyEncryptedValue"},
+        "encryptedDiscussionKeys" : {
+          "type" : "array",
+          "items": {"$ref" : "SymmetricKeyEncryptedSymmetricKey"}
         },
-        'groups' : {
-          'type' : 'array',
-          'items' : {
-            'type' : 'object',
-            'name' : 'DiscussionAccess',
-            'groupID' : {
-              'type' : 'string',
-              'format' : 'regex:regex:[0-9A-F]{32}'},
-            'accessLevel' : {
-              'type' : 'string',
-              'enum' : ['reader', 'writer', 'manager']
+        "groups" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "name" : "DiscussionAccess",
+            "groupID" : {
+              "type" : "string",
+              "format" : "regex:regex:[0-9A-F]{32}"},
+            "accessLevel" : {
+              "type" : "string",
+              "enum" : ["reader", "writer", "manager"]
             },
-            'encryptedDiscussionMasterKey' : {
-              '$ref' : 'PublicKeyEncryptedSymmtricKey'
+            "encryptedDiscussionMasterKey" : {
+              "$ref" : "PublicKeyEncryptedSymmtricKey"
             }
           }
         },
-        'eventLog' : {
-          'type' : 'array',
-          'description' : 'list of changes to discussion object',
-          'items' : {'$ref' : 'Event'}
+        "eventLog" : {
+          "type" : "array",
+          "description" : "list of changes to discussion object",
+          "items" : {"$ref" : "Event"}
         }
       }
     },
-    
-    'Message' : {
-      'id' : '#Message',
-      'type' : 'object',
-      'properties' : {
-        'id' : {'type' : 'string', 'format' : 'regex:regex:[0-9A-F]{32}'},
-        'discussionID' : {'type' : 'string', 'format' : 'regex:[0-9A-F]{32}'},
-        'attachmentID' : {
-          'type' : 'string',
-          'required' : false,
-          'format' : 'regex:[0-9A-F]{32}'},
-        'inResponseToMessageID' : {
-          'type' : 'string',
-          'required' : false,
-          'format' : 'regex:[0-9A-F]{32}',
-          'description' : 'reference to parent message', 'required'
+
+    "Message" : {
+      "id" : "#Message",
+      "type" : "object",
+      "properties" : {
+        "id" : {"type" : "string", "format" : "regex:regex:[0-9A-F]{32}"},
+        "discussionID" : {"type" : "string", "format" : "regex:[0-9A-F]{32}"},
+        "attachmentID" : {
+          "type" : "string",
+          "required" : false,
+          "format" : "regex:[0-9A-F]{32}"},
+        "inResponseToMessageID" : {
+          "type" : "string",
+          "required" : false,
+          "format" : "regex:[0-9A-F]{32}",
+          "description" : "reference to parent message", "required"
         },
-        'timestamp' : {'type' : 'string', 'format' : 'date-time'},
-        'encryptedValues' : {
-          'type' : 'array',
-          'items' : {'$ref' : 'SymmetricKeyEncryptedValue'}
+        "timestamp" : {"type" : "string", "format" : "date-time"},
+        "encryptedValues" : {
+          "type" : "array",
+          "items" : {"$ref" : "SymmetricKeyEncryptedValue"}
         },
-        'signature' : {'$ref' : 'Signature'}
+        "signature" : {"$ref" : "Signature"}
       }
     },
-    
-    'Result' : {
-      'id' : '#Result',
-      'type' : 'object',
-      'description' : 'generic operation return code',
-      'properties' :  {
-        'resultCode' : {'type' : 'number', 'description' : '0 for success'},
-        'message' : {'type' : 'string', 'description' : 'e.g., text error info'}
+
+    "Result" : {
+      "id" : "#Result",
+      "type" : "object",
+      "description" : "generic operation return code",
+      "properties" :  {
+        "resultCode" : {"type" : "number", "description" : "0 for success"},
+        "message" : {"type" : "string", "description" : "e.g., text error info"}
       }
     },
-    
-    'Query' : {
-      'id' : '#Query',
-      'type' : 'object',
-      'properties' : {
-        'filters' : {
-          'required' : false,
-          'type' : 'array',
-          'items' : {
-            'type' : 'object',
-            'name' : 'Filter',
-            'properties' : {
-              'fieldName' : {'type' : 'string'},
-              'value' : {
-                'type' : 'string',
-                'description' : 'prefix for partial match etc.'
+
+    "Query" : {
+      "id" : "#Query",
+      "type" : "object",
+      "properties" : {
+        "filters" : {
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "name" : "Filter",
+            "properties" : {
+              "fieldName" : {"type" : "string"},
+              "value" : {
+                "type" : "string",
+                "description" : "prefix for partial match etc."
               }
             }
           }
         },
-        'sort' : {
-          'required' : false,
-          'type' : 'object',
-          'properties' : {
-            'fieldName' : {'type' : 'string'},
-            'startAfter' : {
-              'type' : 'string',
-              'description' : 'return results after this value, for paging',
-              'required' : false
+        "sort" : {
+          "required" : false,
+          "type" : "object",
+          "properties" : {
+            "fieldName" : {"type" : "string"},
+            "startAfter" : {
+              "type" : "string",
+              "description" : "return results after this value, for paging",
+              "required" : false
             }
           }
         }
       }
     },
-      
-    'setUserRequest' : {
-      'id' : '#setUserRequest',
-      'type' : 'object',
-      'description' : 'inputs for setUser operation',
-      'properties' : {
-        'user' : {'$ref' : '#User'}
+
+    "setUserRequest" : {
+      "id" : "#setUserRequest",
+      "type" : "object",
+      "description" : "inputs for setUser operation",
+      "properties" : {
+        "user" : {"$ref" : "#User"}
       }
     },
 
-    'setUserResponse' : {
-      'id' : '#setUserResponse',
-      'type' : 'object',
-      'description' : 'outputs for setUser operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'newUserID' : {'type' : 'string', 'required' : 'false'}
+    "setUserResponse" : {
+      "id" : "#setUserResponse",
+      "type" : "object",
+      "description" : "outputs for setUser operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "newUserID" : {"type" : "string", "required" : "false"}
       }
     },
 
-    'getUsersRequest' : {
-      'id' : '#getUsersRequest',
-      'type' : 'object',
-      'description' : 'inputs for getUsers operation',
-      'properties' : {
-        'query' : {'$ref' : '#Query', 'required' : false}
+    "getUsersRequest" : {
+      "id" : "#getUsersRequest",
+      "type" : "object",
+      "description" : "inputs for getUsers operation",
+      "properties" : {
+        "query" : {"$ref" : "#Query", "required" : false}
       }
     },
 
-    'getUsersResponse' : {
-      'id' : '#getUsersResponse',
-      'type' : 'object',
-      'description' : 'outputs for getUsers operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'users' : {
-          'type' : 'array',
-          'items' : {
-            '$ref': '#User',
-            '$ref' : '#PublicUser'
+    "getUsersResponse" : {
+      "id" : "#getUsersResponse",
+      "type" : "object",
+      "description" : "outputs for getUsers operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "users" : {
+          "type" : "array",
+          "items" : {
+            "$ref": "#User",
+            "$ref" : "#PublicUser"
           }
         },
-        'nextPage' : {'$ref', '#Query', 'required' : false}
+        "nextPage" : {"$ref", "#Query", "required" : false}
       }
     },
 
-    'setGroupRequest' : {
-      'id' : '#setGroupRequest',
-      'type' : 'object',
-      'description' : 'inputs for setGroup operation',
-      'properties' : {
-        'Group' : {'$ref' : '#Group'}
+    "setGroupRequest" : {
+      "id" : "#setGroupRequest",
+      "type" : "object",
+      "description" : "inputs for setGroup operation",
+      "properties" : {
+        "Group" : {"$ref" : "#Group"}
       }
     },
 
-    'setGroupResponse' : {
-      'id' : '#setGroupResponse',
-      'type' : 'object',
-      'description' : 'outputs for setGroup operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'newGroupID' : {'type' : 'string', 'required' : 'false'}
+    "setGroupResponse" : {
+      "id" : "#setGroupResponse",
+      "type" : "object",
+      "description" : "outputs for setGroup operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "newGroupID" : {"type" : "string", "required" : "false"}
       }
     },
 
-    'getGroupsRequest' : {
-      'id' : '#getGroupsRequest',
-      'type' : 'object',
-      'description' : 'inputs for getGroups operation',
-      'properties' : {
-        'query' : {'$ref' : '#Query', 'required' : false}
+    "getGroupsRequest" : {
+      "id" : "#getGroupsRequest",
+      "type" : "object",
+      "description" : "inputs for getGroups operation",
+      "properties" : {
+        "query" : {"$ref" : "#Query", "required" : false}
       }
     },
 
-    'getGroupsResponse' : {
-      'id' : '#getGroupsResponse',
-      'type' : 'object',
-      'description' : 'outputs for getGroups operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'groups' : {
-          'type' : 'array',
-          'items' : {'$ref': '#Group'}
+    "getGroupsResponse" : {
+      "id" : "#getGroupsResponse",
+      "type" : "object",
+      "description" : "outputs for getGroups operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "groups" : {
+          "type" : "array",
+          "items" : {"$ref": "#Group"}
         },
-        'nextPage' : {'$ref', '#Query', 'required' : false}
+        "nextPage" : {"$ref", "#Query", "required" : false}
       }
     },
 
-    'setDiscussionRequest' : {
-      'id' : '#setDiscussionRequest',
-      'type' : 'object',
-      'description' : 'inputs for setDiscussion operation',
-      'properties' : {
-        'Discussion' : {'$ref' : '#Discussion'}
+    "setDiscussionRequest" : {
+      "id" : "#setDiscussionRequest",
+      "type" : "object",
+      "description" : "inputs for setDiscussion operation",
+      "properties" : {
+        "Discussion" : {"$ref" : "#Discussion"}
       }
     },
 
-    'setDiscussionResponse' : {
-      'id' : '#setDiscussionResponse',
-      'type' : 'object',
-      'description' : 'outputs for setDiscussion operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'newDiscussionID' : {'type' : 'string', 'required' : 'false'}
+    "setDiscussionResponse" : {
+      "id" : "#setDiscussionResponse",
+      "type" : "object",
+      "description" : "outputs for setDiscussion operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "newDiscussionID" : {"type" : "string", "required" : "false"}
       }
     },
 
-    'getDiscussionsRequest' : {
-      'id' : '#getDiscussionsRequest',
-      'type' : 'object',
-      'description' : 'inputs for getDiscussions operation',
-      'properties' : {
-        'query' : {'$ref' : '#Query', 'required' : false}
+    "getDiscussionsRequest" : {
+      "id" : "#getDiscussionsRequest",
+      "type" : "object",
+      "description" : "inputs for getDiscussions operation",
+      "properties" : {
+        "query" : {"$ref" : "#Query", "required" : false}
       }
     },
 
-    'getDiscussionsResponse' : {
-      'id' : '#getDiscussionsResponse',
-      'type' : 'object',
-      'description' : 'outputs for getDiscussions operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'discussions' : {
-          'type' : 'array',
-          'items' : {'$ref': '#Discussion', 'description' : '[TODO: unread flag]'}
+    "getDiscussionsResponse" : {
+      "id" : "#getDiscussionsResponse",
+      "type" : "object",
+      "description" : "outputs for getDiscussions operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "discussions" : {
+          "type" : "array",
+          "items" : {"$ref": "#Discussion", "description" : "[TODO: unread flag]"}
         },
-        'nextPage' : {'$ref', '#Query', 'required' : false}
+        "nextPage" : {"$ref", "#Query", "required" : false}
       }
     },
 
-    'joinDiscussionRequest' : {
-      'id' : '#joinDiscussionRequest',
-      'type' : 'object',
-      'description' : 'inputs for joinDiscussion operation',
-      'properties' : {
-        'discussionID' : {'type' : 'string', 'format' : 'regex:[0-9A-F]{32}'}
+    "joinDiscussionRequest" : {
+      "id" : "#joinDiscussionRequest",
+      "type" : "object",
+      "description" : "inputs for joinDiscussion operation",
+      "properties" : {
+        "discussionID" : {"type" : "string", "format" : "regex:[0-9A-F]{32}"}
       }
     },
 
-    'joinDiscussionResponse' : {
-      'id' : '#joinDiscussionResponse',
-      'type' : 'object',
-      'description' : 'outputs for joinDiscussion operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'users' : {
-          'type' : 'array',
-          'description' : 'users present in Discussion',
-          'items' : {'$ref' : '#PublicUser'}
+    "joinDiscussionResponse" : {
+      "id" : "#joinDiscussionResponse",
+      "type" : "object",
+      "description" : "outputs for joinDiscussion operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "users" : {
+          "type" : "array",
+          "description" : "users present in Discussion",
+          "items" : {"$ref" : "#PublicUser"}
         }
       }
     },
 
-    'leaveDiscussionRequest' : {
-      'id' : '#leaveDiscussionRequest',
-      'type' : 'object',
-      'description' : 'inputs for leaveDiscussion operation',
-      'properties' : {
-        'discussionID' : {'type' : 'string', 'format' : 'regex:[0-9A-F]{32}'}
+    "leaveDiscussionRequest" : {
+      "id" : "#leaveDiscussionRequest",
+      "type" : "object",
+      "description" : "inputs for leaveDiscussion operation",
+      "properties" : {
+        "discussionID" : {"type" : "string", "format" : "regex:[0-9A-F]{32}"}
       }
     },
 
-    'leaveDiscussionResponse' : {
-      'id' : '#leaveDiscussionResponse',
-      'type' : 'object',
-      'description' : 'outputs for leaveDiscussion operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'}
+    "leaveDiscussionResponse" : {
+      "id" : "#leaveDiscussionResponse",
+      "type" : "object",
+      "description" : "outputs for leaveDiscussion operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"}
       }
     },
 
-    'putMessageRequest' : {
-      'id' : '#putMessageRequest',
-      'type' : 'object',
-      'description' : 'inputs for putMessage operation',
-      'properties' : {
-        'Message' : {'$ref' : '#Message'}
+    "putMessageRequest" : {
+      "id" : "#putMessageRequest",
+      "type" : "object",
+      "description" : "inputs for putMessage operation",
+      "properties" : {
+        "Message" : {"$ref" : "#Message"}
       }
     },
 
-    'putMessageResponse' : {
-      'id' : '#putMessageResponse',
-      'type' : 'object',
-      'description' : 'outputs for putMessage operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'newMessageID' : {'type' : 'string', 'required' : 'false'}
+    "putMessageResponse" : {
+      "id" : "#putMessageResponse",
+      "type" : "object",
+      "description" : "outputs for putMessage operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "newMessageID" : {"type" : "string", "required" : "false"}
       }
     },
 
-    'getMessagesRequest' : {
-      'id' : '#getMessagesRequest',
-      'type' : 'object',
-      'description' : 'inputs for getMessages operation',
-      'properties' : {
-        'query' : {'$ref' : '#Query', 'required' : false}
+    "getMessagesRequest" : {
+      "id" : "#getMessagesRequest",
+      "type" : "object",
+      "description" : "inputs for getMessages operation",
+      "properties" : {
+        "query" : {"$ref" : "#Query", "required" : false}
       }
     },
 
-    'getMessagesResponse' : {
-      'id' : '#getMessagesResponse',
-      'type' : 'object',
-      'description' : 'outputs for getMessages operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'messages' : {
-          'type' : 'array',
-          'items' : {'$ref': '#Message'}
+    "getMessagesResponse" : {
+      "id" : "#getMessagesResponse",
+      "type" : "object",
+      "description" : "outputs for getMessages operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "messages" : {
+          "type" : "array",
+          "items" : {"$ref": "#Message"}
         },
-        'nextPage' : {'$ref', '#Query', 'required' : false}
+        "nextPage" : {"$ref", "#Query", "required" : false}
       }
     },
 
-    'putAttachmentRequest' : {
-      'id' : '#putAttachmentRequest',
-      'type' : 'object',
-      'description' : 'inputs for putAttachment operation',
-      'properties' : {
-        'Attachment' : {'$ref' : '#Attachment'}
+    "putAttachmentRequest" : {
+      "id" : "#putAttachmentRequest",
+      "type" : "object",
+      "description" : "inputs for putAttachment operation",
+      "properties" : {
+        "Attachment" : {"$ref" : "#Attachment"}
       }
     },
 
-    'putAttachmentResponse' : {
-      'id' : '#putAttachmentResponse',
-      'type' : 'object',
-      'description' : 'outputs for putAttachment operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'newAttachmentID' : {'type' : 'string', 'required' : 'false'}
+    "putAttachmentResponse" : {
+      "id" : "#putAttachmentResponse",
+      "type" : "object",
+      "description" : "outputs for putAttachment operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "newAttachmentID" : {"type" : "string", "required" : "false"}
       }
     },
 
-    'getAttachmentRequest' : {
-      'id' : '#getAttachmentRequest',
-      'type' : 'object',
-      'description' : 'inputs for getAttachment operation',
-      'properties' : {
-        'attachmentID' : {'type' : 'string', 'format' : 'regex:[0-9A-F]{32}'}
+    "getAttachmentRequest" : {
+      "id" : "#getAttachmentRequest",
+      "type" : "object",
+      "description" : "inputs for getAttachment operation",
+      "properties" : {
+        "attachmentID" : {"type" : "string", "format" : "regex:[0-9A-F]{32}"}
       }
     },
 
-    'getAttachmentResponse' : {
-      'id' : '#getAttachmentResponse',
-      'type' : 'object',
-      'description' : 'outputs for getAttachment operation',
-      'properties' : {
-        'result' : {'$ref' : '#Result'},
-        'attachment' : {'$ref': '#Attachment', 'required' : false}
+    "getAttachmentResponse" : {
+      "id" : "#getAttachmentResponse",
+      "type" : "object",
+      "description" : "outputs for getAttachment operation",
+      "properties" : {
+        "result" : {"$ref" : "#Result"},
+        "attachment" : {"$ref": "#Attachment", "required" : false}
       }
     },
 
-    'newMessageNotification' : {
-      'id' : '#newMessageNotification',
-      'type' : 'object',
-      'description' : 'outputs for newMessageNotification',
-      'properties' : {
-        'message' : {'$ref', '#Message'}
+    "newMessageNotification" : {
+      "id" : "#newMessageNotification",
+      "type" : "object",
+      "description" : "outputs for newMessageNotification",
+      "properties" : {
+        "message" : {"$ref", "#Message"}
       }
     },
 
-    'userJoinedNotification' : {
-      'id' : '#userJoinedNotification',
-      'type' : 'object',
-      'description' : 'outputs for userJoinedNotification',
-      'properties' : {
-        'documentID' : {'type' : 'string', 'format' : 'regex:[0-9A-F]{32}'},
-        'user' : {'$ref', '#PublicUser'}
+    "userJoinedNotification" : {
+      "id" : "#userJoinedNotification",
+      "type" : "object",
+      "description" : "outputs for userJoinedNotification",
+      "properties" : {
+        "documentID" : {"type" : "string", "format" : "regex:[0-9A-F]{32}"},
+        "user" : {"$ref", "#PublicUser"}
       }
     },
 
-    'userLeftNotification' : {
-      'id' : '#userLeftNotification',
-      'type' : 'object',
-      'description' : 'outputs for userLeftNotification',
-      'properties' : {
-        'documentID' : {'type' : 'string', 'format' : 'regex:[0-9A-F]{32}'},
-        'user' : {'$ref', '#PublicUser'}
+    "userLeftNotification" : {
+      "id" : "#userLeftNotification",
+      "type" : "object",
+      "description" : "outputs for userLeftNotification",
+      "properties" : {
+        "documentID" : {"type" : "string", "format" : "regex:[0-9A-F]{32}"},
+        "user" : {"$ref", "#PublicUser"}
       }
-    }    
+    }
   }
 }
 
