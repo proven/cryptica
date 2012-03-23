@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="socket.io-0.9.0.js"></script>
+    <script src="jquery-1.7.2.js"></script>
+    <script>
+
+function printMessage(msg) {
+    $('#lines').append($('<p>').append($('<em>').text(msg)));
+}
+
+var socket = io.connect();
+
+socket.on('connect', function () {
+    printMessage('connected')
+});
+
+socket.on('message', function (msg) {
+    printMessage(msg)
+});
+
+socket.on('reconnecting', function () {
+    printMessage('reconnecting...');
+});
+
+socket.on('error', function (e) {
+    printMessage(e ? e : 'A unknown error occurred');
+});
+
+$(function () {
+    $('#send-message').submit(function () {
+	socket.emit('message', $('#message').val());
+	$('#message').val('').focus();
+//	$('#lines').get(0).scrollTop = 10000000;
+	return false;
+    });
+});
+
+    </script>
+  </head>
+<body>
+  <div id="app">
+    <div id="messages">
+      <div id="lines"></div>
+    </div>
+    <form id="send-message">
+      <input id="message">
+      <button>Send</button>
+    </form>
+  </div>
+</body>
+</html>
