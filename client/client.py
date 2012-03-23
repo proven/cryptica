@@ -3,7 +3,6 @@ import socketio
 import socketio.namespace
 import socketio.mixins
 import ws4py.client.geventclient
-import base64
 
 
 class WebSocketBackEnd(ws4py.client.geventclient.WebSocketClient):
@@ -12,7 +11,6 @@ class WebSocketBackEnd(ws4py.client.geventclient.WebSocketClient):
         ws4py.client.geventclient.WebSocketClient.__init__(
             self, url, protocols, extensions)
         self.io = io
-        self.key = Crypto.Random.get_random_bytes(32)
 
     def process_response_line(self, response_line):
         print 'process_response_line: ' + response_line
