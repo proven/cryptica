@@ -290,6 +290,65 @@
       }
     },
 
+    "rpcRequest" : {
+      "id" : "#rpcRequest",
+      "type" : "object",
+      "properties" : {
+        "id" : {"type" : "integer"},
+        "method" : {
+          "type" : "string",
+          "enum" : [
+            "setUser",
+            "getUsers",
+            "setGroup",
+            "getGroups",
+            "setDiscussion",
+            "getDiscussions",
+            "joinDiscussion",
+            "leaveDiscussion",
+            "putMessage",
+            "getMessages",
+            "putAttachment",
+            "getAttachment"]
+        },
+        "params" : {"type" : "object"}
+      }
+    },
+
+    "rpcResponse" : {
+      "id" : "#rpcResponse",
+      "type" : "object",
+      "properties" : {
+        "id" : {"type" : "integer"},
+        "result" : {"type" : "object", "required" : false},
+        "error" : {"$ref" : "#rpcError", "required" : false}
+      }
+    },
+
+    "rpcNotification" : {
+      "id" : "#rpcNotification",
+      "type" : "object",
+      "properties" : {
+        "method" : {
+          "type" : "string",
+          "enum" : [
+            "newMessage",
+            "userJoined",
+            "userLeft"]
+        },
+        "params" : {"type" : "object"}
+      }
+    },
+
+    "rpcError" : {
+      "id" : "#rpcError",
+      "type" : "object",
+      "properties" : {
+        "code" : {"type" : "integer"},
+        "message" : {"type" : "string"}
+      }      
+    },
+
     "setUserRequest" : {
       "id" : "#setUserRequest",
       "type" : "object",
@@ -305,7 +364,7 @@
       "description" : "outputs for setUser operation",
       "properties" : {
         "result" : {"$ref" : "#Result"},
-        "newUserID" : {"type" : "string", "required" : "false"}
+        "newUserID" : {"type" : "string", "required" : false}
       }
     },
 
@@ -350,7 +409,7 @@
       "description" : "outputs for setGroup operation",
       "properties" : {
         "result" : {"$ref" : "#Result"},
-        "newGroupID" : {"type" : "string", "required" : "false"}
+        "newGroupID" : {"type" : "string", "required" : false}
       }
     },
 
@@ -392,7 +451,7 @@
       "description" : "outputs for setDiscussion operation",
       "properties" : {
         "result" : {"$ref" : "#Result"},
-        "newDiscussionID" : {"type" : "string", "required" : "false"}
+        "newDiscussionID" : {"type" : "string", "required" : false}
       }
     },
 
@@ -475,7 +534,7 @@
       "description" : "outputs for putMessage operation",
       "properties" : {
         "result" : {"$ref" : "#Result"},
-        "newMessageID" : {"type" : "string", "required" : "false"}
+        "newMessageID" : {"type" : "string", "required" : false}
       }
     },
 
@@ -517,7 +576,7 @@
       "description" : "outputs for putAttachment operation",
       "properties" : {
         "result" : {"$ref" : "#Result"},
-        "newAttachmentID" : {"type" : "string", "required" : "false"}
+        "newAttachmentID" : {"type" : "string", "required" : false}
       }
     },
 
