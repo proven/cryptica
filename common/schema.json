@@ -349,8 +349,8 @@
       }      
     },
 
-    "setUserRequest" : {
-      "id" : "#setUserRequest",
+    "setUserParams" : {
+      "id" : "#setUserParams",
       "type" : "object",
       "description" : "inputs for setUser operation",
       "properties" : {
@@ -358,8 +358,8 @@
       }
     },
 
-    "setUserResponse" : {
-      "id" : "#setUserResponse",
+    "setUserResult" : {
+      "id" : "#setUserResult",
       "type" : "object",
       "description" : "outputs for setUser operation",
       "properties" : {
@@ -368,8 +368,8 @@
       }
     },
 
-    "getUsersRequest" : {
-      "id" : "#getUsersRequest",
+    "getUsersParams" : {
+      "id" : "#getUsersParams",
       "type" : "object",
       "description" : "inputs for getUsers operation",
       "properties" : {
@@ -377,8 +377,8 @@
       }
     },
 
-    "getUsersResponse" : {
-      "id" : "#getUsersResponse",
+    "getUsersResult" : {
+      "id" : "#getUsersResult",
       "type" : "object",
       "description" : "outputs for getUsers operation",
       "properties" : {
@@ -394,8 +394,8 @@
       }
     },
 
-    "setGroupRequest" : {
-      "id" : "#setGroupRequest",
+    "setGroupParams" : {
+      "id" : "#setGroupParams",
       "type" : "object",
       "description" : "inputs for setGroup operation",
       "properties" : {
@@ -403,8 +403,8 @@
       }
     },
 
-    "setGroupResponse" : {
-      "id" : "#setGroupResponse",
+    "setGroupResult" : {
+      "id" : "#setGroupResult",
       "type" : "object",
       "description" : "outputs for setGroup operation",
       "properties" : {
@@ -413,8 +413,8 @@
       }
     },
 
-    "getGroupsRequest" : {
-      "id" : "#getGroupsRequest",
+    "getGroupsParams" : {
+      "id" : "#getGroupsParams",
       "type" : "object",
       "description" : "inputs for getGroups operation",
       "properties" : {
@@ -422,8 +422,8 @@
       }
     },
 
-    "getGroupsResponse" : {
-      "id" : "#getGroupsResponse",
+    "getGroupsResult" : {
+      "id" : "#getGroupsResult",
       "type" : "object",
       "description" : "outputs for getGroups operation",
       "properties" : {
@@ -436,8 +436,8 @@
       }
     },
 
-    "setDiscussionRequest" : {
-      "id" : "#setDiscussionRequest",
+    "setDiscussionParams" : {
+      "id" : "#setDiscussionParams",
       "type" : "object",
       "description" : "inputs for setDiscussion operation",
       "properties" : {
@@ -445,8 +445,8 @@
       }
     },
 
-    "setDiscussionResponse" : {
-      "id" : "#setDiscussionResponse",
+    "setDiscussionResult" : {
+      "id" : "#setDiscussionResult",
       "type" : "object",
       "description" : "outputs for setDiscussion operation",
       "properties" : {
@@ -455,8 +455,8 @@
       }
     },
 
-    "getDiscussionsRequest" : {
-      "id" : "#getDiscussionsRequest",
+    "getDiscussionsParams" : {
+      "id" : "#getDiscussionsParams",
       "type" : "object",
       "description" : "inputs for getDiscussions operation",
       "properties" : {
@@ -464,8 +464,8 @@
       }
     },
 
-    "getDiscussionsResponse" : {
-      "id" : "#getDiscussionsResponse",
+    "getDiscussionsResult" : {
+      "id" : "#getDiscussionsResult",
       "type" : "object",
       "description" : "outputs for getDiscussions operation",
       "properties" : {
@@ -478,8 +478,8 @@
       }
     },
 
-    "joinDiscussionRequest" : {
-      "id" : "#joinDiscussionRequest",
+    "joinDiscussionParams" : {
+      "id" : "#joinDiscussionParams",
       "type" : "object",
       "description" : "inputs for joinDiscussion operation",
       "properties" : {
@@ -487,8 +487,8 @@
       }
     },
 
-    "joinDiscussionResponse" : {
-      "id" : "#joinDiscussionResponse",
+    "joinDiscussionResult" : {
+      "id" : "#joinDiscussionResult",
       "type" : "object",
       "description" : "outputs for joinDiscussion operation",
       "properties" : {
@@ -501,8 +501,8 @@
       }
     },
 
-    "leaveDiscussionRequest" : {
-      "id" : "#leaveDiscussionRequest",
+    "leaveDiscussionParams" : {
+      "id" : "#leaveDiscussionParams",
       "type" : "object",
       "description" : "inputs for leaveDiscussion operation",
       "properties" : {
@@ -510,8 +510,8 @@
       }
     },
 
-    "leaveDiscussionResponse" : {
-      "id" : "#leaveDiscussionResponse",
+    "leaveDiscussionResult" : {
+      "id" : "#leaveDiscussionResult",
       "type" : "object",
       "description" : "outputs for leaveDiscussion operation",
       "properties" : {
@@ -519,8 +519,8 @@
       }
     },
 
-    "putMessageRequest" : {
-      "id" : "#putMessageRequest",
+    "putMessageParams" : {
+      "id" : "#putMessageParams",
       "type" : "object",
       "description" : "inputs for putMessage operation",
       "properties" : {
@@ -528,8 +528,8 @@
       }
     },
 
-    "putMessageResponse" : {
-      "id" : "#putMessageResponse",
+    "putMessageResult" : {
+      "id" : "#putMessageResult",
       "type" : "object",
       "description" : "outputs for putMessage operation",
       "properties" : {
@@ -538,8 +538,8 @@
       }
     },
 
-    "getMessagesRequest" : {
-      "id" : "#getMessagesRequest",
+    "getMessagesParams" : {
+      "id" : "#getMessagesParams",
       "type" : "object",
       "description" : "inputs for getMessages operation",
       "properties" : {
@@ -547,8 +547,8 @@
       }
     },
 
-    "getMessagesResponse" : {
-      "id" : "#getMessagesResponse",
+    "getMessagesResult" : {
+      "id" : "#getMessagesResult",
       "type" : "object",
       "description" : "outputs for getMessages operation",
       "properties" : {
@@ -561,8 +561,8 @@
       }
     },
 
-    "putAttachmentRequest" : {
-      "id" : "#putAttachmentRequest",
+    "putAttachmentParams" : {
+      "id" : "#putAttachmentParams",
       "type" : "object",
       "description" : "inputs for putAttachment operation",
       "properties" : {
@@ -570,8 +570,8 @@
       }
     },
 
-    "putAttachmentResponse" : {
-      "id" : "#putAttachmentResponse",
+    "putAttachmentResult" : {
+      "id" : "#putAttachmentResult",
       "type" : "object",
       "description" : "outputs for putAttachment operation",
       "properties" : {
@@ -580,8 +580,8 @@
       }
     },
 
-    "getAttachmentRequest" : {
-      "id" : "#getAttachmentRequest",
+    "getAttachmentParams" : {
+      "id" : "#getAttachmentParams",
       "type" : "object",
       "description" : "inputs for getAttachment operation",
       "properties" : {
@@ -589,8 +589,8 @@
       }
     },
 
-    "getAttachmentResponse" : {
-      "id" : "#getAttachmentResponse",
+    "getAttachmentResult" : {
+      "id" : "#getAttachmentResult",
       "type" : "object",
       "description" : "outputs for getAttachment operation",
       "properties" : {

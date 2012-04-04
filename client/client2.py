@@ -1,20 +1,65 @@
-import json_stream
-#from gevent import monkey; monkey.patch_all()
+import cryptica.common.transport
+#from gevent import monkey; monkey.patch_all()...?
 import socketio
 import socketio.namespace
 import socketio.mixins
 
 
-class Service(json_stream.JsonStreamClient):
+class Client(cryptica.common.transport.JsonRpcClient):
     def __init__(self, front_end):
-        json_stream.JsonStreamClient.__init__(self)
+        cryptica.common.transport.Client.__init__(self)
         self.front_end = front_end
 
-    def handle_response(self, request, response):
-        self.io.emit('message', '...')
+    def _relay_response(self, request, response):
+        self.front_end.send_response(request, response)
 
     def close(self):
         self.front_end.close() # TODO: loop?
+
+    def handle_response_setUser(self, request, response):
+        self._relay_response(request, response)
+
+    def handle_response_getUsers(self, request, response):
+        pass
+
+    def handle_response_setGroup(self, request, response):
+        pass
+
+    def handle_response_getGroups(self, request, response):
+        pass
+
+    def handle_response_setDiscussion(self, request, response):
+        pass
+
+    def handle_response_getDiscussions(self, request, response):
+        pass
+
+    def handle_response_joinDiscussion(self, request, response):
+        pass
+
+    def handle_response_leaveDiscussion(self, request, response):
+        pass
+
+    def handle_response_putMessage(self, request, response):
+        pass
+
+    def handle_response_getMessages(self, request, response):
+        pass
+
+    def handle_response_putAttachment(self, request, response):
+        pass
+
+    def handle_response_getAttachment(self, request, response):
+        pass
+
+    def handle_notification_newMessage(self, notification):
+        pass
+
+    def handle_notification_userJoined(self, notification):
+        pass
+
+    def handle_notification_userLeft(self, notification):
+        pass
 
 
 class SocketIOFrontEnd(socketio.namespace.BaseNamespace):
@@ -22,7 +67,7 @@ class SocketIOFrontEnd(socketio.namespace.BaseNamespace):
         self.service = None
 
     def get_initial_acl(self):
-        return ['on_message']
+        return ['on_request']
 
     def process_packet(self, packet):
         # TODO: not receiving connect/disconnect
@@ -32,21 +77,22 @@ class SocketIOFrontEnd(socketio.namespace.BaseNamespace):
     def recv_connect(self):
         print 'SocketIOFrontEnd recv_connect'
         # TODO: instance per connection?
-        # self.service = ...
+        # self.client = ...
 
     def recv_disconnect(self):
         print 'SocketIOFrontEnd disconnecting'
-        self.service.close()
-        self.service = None
+        self.client.close()
+        self.client = None
 
-    def on_message(self, message):
+    def on_request(self, request):
+        # parse... (TODO: different schema)
         if not self.service:
-            self.service = Service(self)
-            self.service.spawn_run()
-        self.service.send_request(message)
+            self.client = Client(self)
+            self.client.start()
+        self.client.send_request(request)
 
-    def send_response(self, response):
-        self.emit('message', json.dumps(response))
+    def send_response(self, request, response):
+        self.emit('response', [request, response])
 
 
 class WebServer(object):

@@ -1,21 +1,53 @@
 #!/usr/bin/env python
 
 import json_stream
+import cryptica.common.transport
 
 
-def handle_stream(socket, address):
-    stream = json_stream.ServerJsonStream(socket)
-    stream.run()
+class RequestHandler(cryptica.common.transport.JsonRpcRequestHandler):
+    def handle_request_setUser(self, request):
+        return None, None
+
+    def handle_request_getUsers(self, request):
+        return None, None
+
+    def handle_request_setGroup(self, request):
+        return None, None
+
+    def handle_request_getGroups(self, request):
+        return None, None
+
+    def handle_request_setDiscussion(self, request):
+        return None, None
+
+    def handle_request_getDiscussions(self, request):
+        return None, None
+
+    def handle_request_joinDiscussion(self, request):
+        return None, None
+
+    def handle_request_leaveDiscussion(self, request):
+        return None, None
+
+    def handle_request_putMessage(self, request):
+        return None, None
+
+    def handle_request_getMessages(self, request):
+        return None, None
+
+    def handle_request_putAttachment(self, request):
+        return None, None
+
+    def handle_request_getAttachment(self, request):
+        return None, None
+
+
+class Server(cryptica.common.transport.JsonRpcServer):
+    def __init__(self):
+        cryptica.common.transport.JsonRpcServer.__init__(
+            handler=RequestHandler)
 
 
 if __name__ == '__main__':
-    initialize_schema()
-    server = gevent.server.StreamServer(
-                ('127.0.0.1', 9000),
-                handle_stream,
-                certfile='../pki/data/certs/servercert.pem',
-                keyfile='../pki/data/private/serverkey.pem',
-                ca_certs='../pki/data/certs/cacert.pem',
-                cert_reqs=ssl.CERT_REQUIRED,
-                ssl_version=ssl.PROTOCOL_TLSv1)
+    server = Server()
     server.serve_forever()
