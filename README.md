@@ -17,14 +17,14 @@ Issues:
 
 * WSS Origin issue: can't run client as file:// (Chrome)
 * Server certificate validation
-** can't progamatically supply own CA in browser client.
-** Chrome allows unsigned cert for WebSockets without warning; Firefox fails
+  * can't progamatically supply own CA in browser client.
+  * Chrome allows unsigned cert for WebSockets without warning; Firefox fails
 unless user browses normally to domain.
 * General concerns with JavaScript crypto
-** "Javascript Cryptography Considered Harmful" http://www.matasano.com/articles/javascript-cryptography/
-** "Final post on Javascript crypto" http://rdist.root.org/2010/11/29/final-post-on-javascript-crypto/
+  * ["Javascript Cryptography Considered Harmful"](http://www.matasano.com/articles/javascript-cryptography/)
+  * ["Final post on Javascript crypto"](http://rdist.root.org/2010/11/29/final-post-on-javascript-crypto/)
 * Not using OpenSSL, which is subject to best scrutiny
-** E.g., "Remote Timing Attacks are Still Practical" http://eprint.iacr.org/2011/232.pdf
+  * E.g., ["Remote Timing Attacks are Still Practical"](http://eprint.iacr.org/2011/232.pdf)
 
 
 JavaScript UI/client service model
