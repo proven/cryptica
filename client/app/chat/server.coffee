@@ -22,7 +22,7 @@ io.sockets.on 'connection', (socket) ->
     for i in [0...2]
       messages.push
         id: currentID++
-        userID: 'user'+currentID
+        user_id: 'userID'+currentID
         message: 'pushed-message'+currentID
     socket.emit 'newMessages', messages
 
@@ -36,7 +36,7 @@ io.sockets.on 'connection', (socket) ->
     console.log 'request: find: ' + id
     callback
       id: id
-      userID: 'userID'+id
+      user_id: 'userID'+id
       message: 'find-message'+id
 
   socket.on 'findAll', (callback) ->
@@ -45,6 +45,6 @@ io.sockets.on 'connection', (socket) ->
     for id in [0...5]
       allObjs.push
         id: id
-        userID: 'userID'+id
+        user_id: 'userID'+id
         message: 'findAll-message'+id
     callback allObjs

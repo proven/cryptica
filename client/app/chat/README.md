@@ -35,3 +35,8 @@ Witness the awesome messages start showing up.
 
 * jQuery
 * Underscore
+
+## Lessons learned
+
+* Camel-case fields in the model must be underscore'd (i.e., `Ember.String.decamelize`) in the service API. (Or at least passed into `store.load`.)
+  * We need to decide what our standard is going to be. 
