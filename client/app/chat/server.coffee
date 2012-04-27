@@ -48,3 +48,9 @@ io.sockets.on 'connection', (socket) ->
         user_id: 'userID'+id
         message: 'findAll-message'+id
     callback allObjs
+
+  socket.on 'decryptish', (ciphertext, callback) ->
+    if ciphertext instanceof Array
+      callback ciphertext.map (ct) -> ct + '::decryptished'
+    else
+      callback ciphertext + '::decryptished'

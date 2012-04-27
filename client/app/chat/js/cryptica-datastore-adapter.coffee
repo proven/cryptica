@@ -18,22 +18,39 @@ define ['use!libs/socket.io', 'emberdata'], (io) ->
 
       # Create listeners for the notifications that the service might push down
       # to us.
-      @socket.on 'newMessages', @notify_messagesReceived
+      @socket.on 'newMessages', => @_notify_messagesReceived.apply(@, arguments)
 
-    notify_messagesReceived: (messages) ->
-        console.log 'received new messages'
-        console.log messages
-        App.store.loadMany App.Message, messages
+    _notify_messagesReceived: (messages) ->
+        @_processMessages messages
+
+    # This is an absurd intermediate step to illustrate calling to the service
+    # for crypto functions.
+    # NOTE: This breaks the batch-ness of store.loadMany, which is bad.
+    _processMessages: (messages) ->
+      if messages instanceof Array
+        @socket.emit 'decryptish', (_.pluck messages, 'message'), (cleartext) ->
+          _.each messages, (element, index) ->
+            element['message'] = cleartext[index]
+          App.store.loadMany App.Message, messages
+      else
+        @socket.emit 'decryptish', messages['message'], (cleartext) ->
+          messages['message'] = cleartext
+          App.store.load App.Message, messages
+
+
+    ###
+    Begin DS.Adapter overrides that must/should be implemented
+    ###
 
     find: (store, type, id) ->
       console.log 'calling find'
-      @socket.emit 'find', id, (data) ->
-        store.load type, id, data
+      @socket.emit 'find', id, (data) =>
+        @_processMessages data
 
     findAll: (store, type) ->
       console.log 'calling findAll'
-      @socket.emit 'findAll', (data) ->
-        store.loadMany type, data
+      @socket.emit 'findAll', (data) =>
+        @_processMessages data
 
 ###
     createRecord: (store, type, record) ->
