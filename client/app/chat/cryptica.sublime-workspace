@@ -1,0 +1,977 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cod",
+				"codeBundle"
+			],
+			[
+				"mess",
+				"messages"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/Adam/Desktop/notes.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "TODO.txt",
+			"settings":
+			{
+				"buffer_size": 1204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 77,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.coffee",
+			"settings":
+			{
+				"buffer_size": 1141,
+				"line_ending": "Unix",
+				"name": "/**"
+			}
+		},
+		{
+			"file": "js/libs/ember-0.9.7.1.js",
+			"settings":
+			{
+				"buffer_size": 558019,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/libs/ember-data.js",
+			"settings":
+			{
+				"buffer_size": 100361,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Adam/Downloads/store.js.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1339,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 676,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/libs/require/use.js",
+			"settings":
+			{
+				"buffer_size": 2855,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/libs/socket.io.js",
+			"settings":
+			{
+				"buffer_size": 72592,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "define ['use!libs/socket.io', 'jquery'], (io, $) ->\n  socket = io.connect 'http://localhost:3000'\n  socket.on 'news', (data) ->\n    console.log 'got socketio data'\n    console.log data\n    App.store.create\n",
+			"file": "js/test.coffee",
+			"file_size": 185,
+			"file_write_time": 129799265382230000,
+			"settings":
+			{
+				"buffer_size": 206,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Adam/code/cryptica/client/app/starter-kit/js/app.coffee",
+			"settings":
+			{
+				"buffer_size": 1637,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/cryptica-datastore-adapter.coffee",
+			"settings":
+			{
+				"buffer_size": 7161,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 288.0,
+		"selected_items":
+		[
+			[
+				"mark",
+				"Markdown Preview: current file in Sublime Text"
+			],
+			[
+				"mar",
+				"Markdown Preview: current file in browser"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"diff",
+				"FileDiffs: Menu"
+			],
+			[
+				"upd",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packag in",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Add Repository"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 441.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/service_communication.coffee",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/build.coffee",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/chat_message.coffee",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/libs/socket.io.js",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/libs/require/use.js.txt",
+		"/C/Users/Adam/Code/3rdParty/todomvc/labs/dependency-examples/emberjs_require/index.html",
+		"/C/Users/Adam/Code/cryptica/client/app/clientnotes.md",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/cryptica.sublime-workspace",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/cryptica.sublime-project",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/app.js",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/chat_messages.coffee",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/ender.js",
+		"/C/Users/Adam/Code/3rdParty/ember/node_modules/ember-runtime/ember-runtime.js",
+		"/C/Users/Adam/Code/3rdParty/ember/node_modules/ember-runtime/node_modules/ember-metal/ember-metal.js",
+		"/Z/Music/Classical/Bach - Canadian Brass - Goldberg Variation.m3u",
+		"/C/Users/Adam/code/cryptica/client/app/starter-kit/js/build.bat",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/models/chat_message.coffee",
+		"/C/Users/Adam/code/cryptica/client/app/starter-kit/js/models/chat_messages.coffee",
+		"/C/Users/Adam/Code/cryptica/client/app/starter-kit/js/models/chat_message.js",
+		"/C/Users/Adam/Code/cryptica/client/app/chat/app/chaplin/lib/subscriber.coffee",
+		"/C/Users/Adam/Code/cryptica/client/app/chat/public/index.html",
+		"/C/Users/Adam/Code/cryptica/client/app/models.js",
+		"/C/Users/Adam/Code/cryptica/client/app/chat/app/chaplin/controllers/application_controller.coffee",
+		"/C/Users/Adam/Code/3rdParty/chaplin/index.html",
+		"/C/Users/Adam/Code/3rdParty/chaplin/js/example_application.js",
+		"/C/Users/Adam/Code/cryptica/client/app/chat/app/routes.coffee",
+		"/C/Users/Adam/Code/cryptica/client/app/chat/app/chaplin/application.js",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/a.pritchard - psiphon/work/PsiphonV/Cloud/cloud providers.txt",
+		"/C/Users/Adam/Code/cryptica/Cakefile",
+		"/C/Users/Adam/Code/cryptica/client/client.html",
+		"/C/Users/Adam/Code/cryptica/README.md",
+		"/C/Users/Adam/Code/cryptica/server/server.coffee",
+		"/C/Users/Adam/Code/cryptica/client/client.coffee",
+		"/C/Users/Adam/Apps/mongodb/README",
+		"/C/Users/Adam/Code/cryptica/app.coffee",
+		"/C/Users/Adam/Code/cryptica/common/test_schema.json",
+		"/C/Users/Adam/Code/cryptica/common/schema.json",
+		"/C/Users/Adam/Code/cryptica/client/localServer.coffee",
+		"/C/Users/Adam/.npmrc",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Adam/Code/cryptica/.gitignore",
+		"/C/Users/Adam/Code/cryptica/node_modules/socket.io/lib/manager.js",
+		"/C/Users/Adam/Code/cryptica/client/coffee-script.js",
+		"/C/Users/Adam/Code/text-file-follower/package.json",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/Automation/psi_ops.py",
+		"/C/Users/Adam/Code/text-file-follower/src/index.coffee",
+		"/C/Users/Adam/Code/text-file-follower/test/index.coffee",
+		"/C/Users/Adam/Code/text-file-follower/x.coffee",
+		"/C/Users/Adam/Code/text-file-follower/x.x",
+		"/C/Users/Adam/Code/text-file-follower/Makefile",
+		"/C/Users/Adam/Downloads/Modio 3/Modio/Getting Started.txt",
+		"/C/Users/Adam/Desktop/Shepard/morphhead.yaml",
+		"/C/Users/Adam/Code/playground/README.md",
+		"/C/Users/Adam/Code/playground/chat-coffeescript/app.coffee",
+		"/C/Users/Adam/Downloads/saveedit_rev25/canon.txt",
+		"/C/Users/Adam/Downloads/Modio 4 Beta/About the Beta.txt",
+		"/C/Users/Adam/AppData/Roaming/gnupg/gpg.conf",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/Users/adam's documents/GnuPG/pubkeys.asc",
+		"/C/Users/Adam/key/pubkeys.asc",
+		"/C/Users/Adam/key/pubkeys",
+		"/C/Users/Adam/key/sign_subkey.asc",
+		"/C/Users/Adam/key/enc_subkey.asc",
+		"/C/Users/Adam/key/enc_subkey",
+		"/C/Program Files (x86)/GNU/GnuPG/share/gpg4win/README.en.txt",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/Users/adam's documents/GnuPG/defunct/pritchard.adam.public",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/Users/adam's documents/GnuPG/defunct/pritchard.adam.gpg",
+		"/C/Users/Adam/Downloads/mfpl.crt",
+		"/C/Users/Adam/Downloads/mfpl.crt.jamie.asc",
+		"/C/Users/Adam/Downloads/mfpl.crt.htm",
+		"/C/Users/Adam/AppData/Roaming/gnupg/secring.gpg.lock",
+		"/C/Users/Adam/AppData/Roaming/gnupg/trustdb.gpg",
+		"/C/Users/Adam/AppData/Roaming/gnupg/secring.gpg",
+		"/C/Users/Adam/AppData/Roaming/gnupg/pubring.gpg",
+		"/C/Users/Adam/key/F66C3F936C1E8720421510CC9981D70A014D6798.asc",
+		"/C/Users/Adam/key/F66C.asc",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/Users/adam's documents/GnuPG/pritchard.adam.gpg",
+		"/C/Users/Adam/key",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/Default/Base File.sublime-settings",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/C/Users/Adam/Downloads/CipherShare-EULA.txt",
+		"/C/Users/Adam/Code/playground/chat-coffeescript/public/coffee/index.coffee",
+		"/C/Users/Adam/Code/text-file-follower/lib/index.coffee",
+		"/C/Users/Adam/Code/text-file-follower/test/index.js",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/a.pritchard - psiphon/work/PsiphonV/Data/Cloud/cloud providers.txt",
+		"/C/Users/Adam/Code/playground/test.coffee",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/a.pritchard - psiphon/work/Psiphon Operations/PsiAdmin/psiadmin_credentials.txt",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/~source/CipherShare/Client/MainFrm.cpp",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/~source/CipherShare/CipherShareScriptingClient/CipherShareScriptingClient.cpp",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/~source/CipherShare/CipherShareScriptingClient/CommandBase.cpp",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/~source/CipherShare/Client/CentralInterface.cpp",
+		"/C/Users/Adam/AppData/Roaming/CipherShare Data/adam - worksafe3/work/~source/CipherShare/CipherShareScriptingClient/CommandHelpers.cpp",
+		"/C/cygwin/home/Adam/.zshrc",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/User/Plain text.sublime-settings",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/Automation/psi_ops.py.orig",
+		"/C/cygwin/home/Adam/.zshrc.bak",
+		"/C/cygwin/home/Adam/.oh-my-zsh/themes/prose.zsh-theme",
+		"/C/cygwin/home/Adam/.oh-my-zsh/custom/example.zsh",
+		"/C/cygwin/home/Adam/.oh-my-zsh/oh-my-zsh.sh",
+		"/C/cygwin/home/Adam/.oh-my-zsh/themes/arrow.zsh-theme",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/.hg/hgrc",
+		"/C/Users/Adam/Desktop/notes.txt",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/Automation/psi_ops.py.resolve",
+		"/C/cygwin/home/Adam/.oh-my-zsh/custom/adam.zsh",
+		"/C/cygwin/home/Adam/battery.py",
+		"/C/cygwin/home/Adam/.oh-my-zsh/themes/robbyrussell.zsh-theme",
+		"/C/cygwin/home/Adam/.oh-my-zsh/custom/example/example.plugin.zsh",
+		"/home/Adam/.oh-my-zsh/oh-my-zsh.sh",
+		"/C/Users/Adam/Code/psiphon/polipo/.hg/hgrc",
+		"/C/cygwin/home/Adam/.ssh/apritchard.bitbucket.ppk",
+		"/C/cygwin/home/Adam/.ssh/apritchard.bitbucket.pub",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/Client/psiclient/connectionmanager.h.orig",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/Client/psiclient/httpsrequest.h.orig",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/Client/psiclient/httpsrequest.h",
+		"/home/Adam/.ssh/config",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/README.md",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/EmailResponder/blacklist.py",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/EmailResponder/mail_process.py",
+		"/C/Users/Adam/Code/psiphon/psiphon-circumvention-system/EmailResponder/settings.py",
+		"/Users/Adam/unison.log",
+		"/Users/Adam/.unison/apps.prf",
+		"/Users/Adam/.zshrc",
+		"/Z/.p",
+		"/C/Users/Adam/Downloads/bootstrap.css",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/dired/Default (Windows).sublime-keymap",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/Default/Global.sublime-settings",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Adam/AppData/Roaming/Sublime Text 2/Packages/dired/dired.py"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\Users\\Adam\\Code\\psiphon\\psiphon-circumvention-system",
+			"C:\\Users\\Adam\\Code\\text-file-follower",
+			"C:\\Users\\Adam\\AppData\\Roaming\\CipherShare Data\\adam - worksafe3\\work\\~source\\",
+			"C:\\Users\\Adam\\AppData\\Roaming\\CipherShare Data\\adam - worksafe3\\work\\~source\\CipherShare",
+			"C:\\Users\\Adam\\Code\\psiphon",
+			"C:\\Users\\Adam\\Code\\psiphon\\polipo"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"findmany",
+			"apply",
+			"removeobj",
+			"findqu",
+			"query",
+			"loadmany",
+			"didChangeData",
+			"deleteRecord: function(manager) {",
+			"primarykey",
+			"proto()",
+			"proto",
+			"updaterecord:",
+			"updatere",
+			"proto.",
+			"current_api",
+			"materializeRecord",
+			" RECORD MATERIALIZATION .",
+			"getPath",
+			"root, path",
+			"slice",
+			"getPath(roo",
+			"getpath =",
+			"getpath:",
+			"ember.getp",
+			"ember.get",
+			"proto =",
+			"proto",
+			"getPath",
+			"primarykey",
+			"ds.mo",
+			"store",
+			"findall",
+			"primaryKey",
+			"load(",
+			"getPath",
+			"rootForType",
+			"ds.mo",
+			"store",
+			"ember.store",
+			"store",
+			"messagesController",
+			"applica",
+			"parentState",
+			"state",
+			"commit",
+			"statech",
+			"chat",
+			"Chat",
+			"chat",
+			"Chat",
+			"\"",
+			"/([\\/\\\\]node_modules[\\/\\\\].+)/)[1]).repl",
+			"/^(\\.\\.?)?\\//",
+			"\\\\",
+			"require(",
+			"require.define",
+			"C:\\\\Users\\\\Adam\\\\Code\\\\cryptica\\\\client\\\\app\\\\starter-kit\\\\js",
+			";",
+			"var",
+			"ember.ob",
+			"newli",
+			"line",
+			"promise",
+			"'",
+			"q.",
+			"nose",
+			"require",
+			"catchup",
+			"re-op",
+			"console.log",
+			"encode",
+			"ssh_host_key",
+			"get_server_e",
+			"hand",
+			"\\n",
+			"\" \"",
+			"for ",
+			"console.log",
+			"re-open",
+			"'error'",
+			"long_delay",
+			"emit",
+			"ccc",
+			"\\n",
+			"Connect(",
+			"ParseCommandLine",
+			"CentralInterface",
+			"m_wndTaskbarNotifier",
+			"mainfr",
+			"balloon",
+			"tray",
+			"systemtray",
+			"systray",
+			"initialize_systray",
+			"systray:initialize_systray",
+			"line",
+			"inden",
+			"\\",
+			" in office psiphon consuming 1 licenses",
+			" in office psiphon consuming 0 licenses",
+			"01/12/12 03:05:24 - Enabled user ",
+			"hg_prompt",
+			"PR_FILLBAR",
+			"batt",
+			"hg",
+			"<<<",
+			"\\n",
+			"blackli",
+			"python",
+			"..",
+			"shift+p",
+			"url",
+			"httpClientRequest",
+			"HTTPConnectionPtr",
+			"do_tunnel",
+			"https",
+			"httpServerRequest",
+			"httpMakeServerRequest",
+			"httpServerTrigger",
+			"httpServerReply",
+			"httpServerReplyHandler",
+			"httpServerHandlerHeaders",
+			"https",
+			"psiphon",
+			"new_object",
+			"makeObject",
+			"new_object",
+			"psiphon"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"\"",
+			"",
+			"/",
+			"",
+			"'",
+			"    "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/Adam/Desktop/notes.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "TODO.txt",
+					"settings":
+					{
+						"buffer_size": 1204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								381,
+								381
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 77,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74,
+								74
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "server.coffee",
+					"settings":
+					{
+						"buffer_size": 1141,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								504,
+								504
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/**",
+							"syntax": "Packages/CoffeeScriptBundle.tmbundle/Syntaxes/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/libs/ember-0.9.7.1.js",
+					"settings":
+					{
+						"buffer_size": 558019,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								306154,
+								306158
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 247829.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/libs/ember-data.js",
+					"settings":
+					{
+						"buffer_size": 100361,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"scope": "bookmarks"
+							},
+							"mark":
+							{
+								"flags": 144,
+								"icon": "dot",
+								"regions":
+								[
+								],
+								"scope": "mark"
+							}
+						},
+						"selection":
+						[
+							[
+								10864,
+								10868
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9629.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Users/Adam/Downloads/store.js.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 18861.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 1339,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								991,
+								991
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "js/main.js",
+					"settings":
+					{
+						"buffer_size": 676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "js/libs/require/use.js",
+					"settings":
+					{
+						"buffer_size": 2855,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								64,
+								95
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "js/libs/socket.io.js",
+					"settings":
+					{
+						"buffer_size": 72592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								230,
+								230
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "js/test.coffee",
+					"settings":
+					{
+						"buffer_size": 206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								184,
+								184
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScriptBundle.tmbundle/Syntaxes/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/C/Users/Adam/code/cryptica/client/app/starter-kit/js/app.coffee",
+					"settings":
+					{
+						"buffer_size": 1637,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScriptBundle.tmbundle/Syntaxes/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "js/cryptica-datastore-adapter.coffee",
+					"settings":
+					{
+						"buffer_size": 7161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								618,
+								618
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScriptBundle.tmbundle/Syntaxes/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 76.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
