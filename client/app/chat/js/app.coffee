@@ -41,13 +41,16 @@ define ['order!jquery', 'order!ember', 'order!emberdata', 'cs!cryptica-datastore
       @set 'content', App.store.findAll(@type)
       @_super()
 
-    # Get called whenever the content changes.
+    # Gets called whenever the content changes.
     arrayDidChange: (start, removeCount, addCount) ->
       @_super.apply(@, arguments)
 
       # Some very rudimentary message count limiting
       length = @get('content').get('length')
       if length > 10
+        # Maybe instead of calling this directly in this event handler we should
+        # queue it until after Ember has finished its render cycle with:
+        # `Ember.run.schedule('render', ...)`?
         @get('content').removeAt 0, 5
       console.log 'arrayDidChange: ' + @get('content').get('length')
 

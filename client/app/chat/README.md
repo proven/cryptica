@@ -40,3 +40,21 @@ Witness the awesome messages start showing up.
 
 * Camel-case fields in the model must be underscore'd (i.e., `Ember.String.decamelize`) in the service API. (Or at least passed into `store.load`.)
   * We need to decide what our standard is going to be. 
+
+## Potentially useful links
+
+* [ember-bootstrap](https://github.com/jzajpt/ember-bootstrap): "A set of UI elements styled using Twitter Boostrap toolkit to use with Ember.js"
+
+* [Using Ember.js with jQuery UI](http://www.lukemelia.com/blog/archives/2012/03/10/using-ember-js-with-jquery-ui/): The links at the bottom are the particularly interesting part -- the rest is general Ember stuff.
+
+* [JSDoc](https://github.com/jsdoc3/jsdoc): Maybe having a pretty comment-to-documentation tools will help us to do both better. (Markdown plugin ftw. Take a look at Ember's API docs.)
+  * To use JSDoc with CoffeeScript, create comment blocks like so (note the asterisk):
+
+    ```  
+    ###*
+    This function does something
+    @param {int} pname Pass a number
+    ###
+    ```
+    
+  * [docco](http://jashkenas.github.com/docco/) is also very popular (and pretty cool). But it seems to be more for making pretty code tours than for documenting APIs and whatnot. And if I have to choose between two… well, reading raw source suffices for code tours.
