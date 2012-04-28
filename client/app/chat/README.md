@@ -49,6 +49,10 @@ Witness the awesome messages start showing up.
 
 * [Using Ember.js with jQuery UI](http://www.lukemelia.com/blog/archives/2012/03/10/using-ember-js-with-jquery-ui/): The links at the bottom are the particularly interesting part -- the rest is general Ember stuff.
 
+* [emberjs-addons](https://github.com/emberjs-addons) github organization. Still a lot of projects that use Sproutcore terminology, but it looks like many are for Ember.
+
+* [Mobile Kit for Ember](https://github.com/ppcano/ember-mk) (which requires [ember-touch](https://github.com/ppcano/sproutcore-touch) for touches and gestures).
+
 * Automatic documentation generators
 
   * [JSDoc](https://github.com/jsdoc3/jsdoc): Maybe having a pretty comment-to-documentation tools will help us to do both better. (Markdown plugin ftw. Take a look at Ember's API docs.)
