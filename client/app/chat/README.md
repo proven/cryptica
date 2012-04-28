@@ -47,14 +47,18 @@ Witness the awesome messages start showing up.
 
 * [Using Ember.js with jQuery UI](http://www.lukemelia.com/blog/archives/2012/03/10/using-ember-js-with-jquery-ui/): The links at the bottom are the particularly interesting part -- the rest is general Ember stuff.
 
-* [JSDoc](https://github.com/jsdoc3/jsdoc): Maybe having a pretty comment-to-documentation tools will help us to do both better. (Markdown plugin ftw. Take a look at Ember's API docs.)
-  * To use JSDoc with CoffeeScript, create comment blocks like so (note the asterisk):
+* Automatic documentation generators
 
-    ```  
-    ###*
-    This function does something
-    @param {int} pname Pass a number
-    ###
-    ```
-    
+  * [JSDoc](https://github.com/jsdoc3/jsdoc): Maybe having a pretty comment-to-documentation tools will help us to do both better. (Markdown plugin ftw. Take a look at Ember's API docs.)
+    * To use JSDoc with CoffeeScript, create comment blocks like so (note the asterisk):
+
+      ```  
+      ###*
+      This function does something
+      @param {int} pname Pass a number
+      ###
+      ```
+  
+  * [dox](https://github.com/visionmedia/dox) uses JSDoc-ish tags and produces JSON that can be converted into HTML or whatever.
+    * [codex](https://github.com/logicalparadox/codex) is a static site generator that can consume dox output to create a site. [codex-hub](http://alogicalparadox.com/codex-hub/) is a template for doing that (in a github-pages-friendly way). 
   * [docco](http://jashkenas.github.com/docco/) is also very popular (and pretty cool). But it seems to be more for making pretty code tours than for documenting APIs and whatnot. And if I have to choose between two… well, reading raw source suffices for code tours.

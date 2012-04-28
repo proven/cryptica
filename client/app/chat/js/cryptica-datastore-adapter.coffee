@@ -1,14 +1,30 @@
-###
-Our communication layer with the Cryptica service.
+###!
+@overview The adapter that Ember uses to communicate with the Cryptica service.
+@project Cryptica Chat Client
+@copyright Proven Security Solutions Inc. 2012
+@license MIT
 ###
 
 define ['use!libs/socket.io', 'emberdata'], (io) ->
 
+  ###
+  The Ember-Data Adapter subclass that provides Ember with communication to the
+  Cryptica service. Add itself to Ember's global `DS` namespace.
+
+  For more information see the [ember-data project](https://github.com/emberjs/data).
+  And in particular the [DS.Adapter base class](https://github.com/emberjs/data/blob/master/packages/ember-data/lib/system/adapters.js)
+  and [DS.RESTAdapter sample implementation](https://github.com/emberjs/data/blob/master/packages/ember-data/lib/adapters/rest_adapter.js).
+  ###
+
   DS.CrypticaAdapter = DS.Adapter.extend
 
-    init: () ->
+    ###
+    Called by the framework when the object is being initialized.
+    ###
+    init: ->
       @_super.apply(@, arguments)
 
+      # Create our connection to the Cryptica service
       @socket = io.connect('http://localhost:3000')
 
       # Note that we don't have to wait to receive `'connect'` before we start
@@ -20,12 +36,16 @@ define ['use!libs/socket.io', 'emberdata'], (io) ->
       # to us.
       @socket.on 'newMessages', => @_notify_messagesReceived.apply(@, arguments)
 
+    ###
+    Called when a new message is received from the service
+    @param {array|object} messages A JS chat message object or array of objects
+    @private
+    ###
     _notify_messagesReceived: (messages) ->
         @_processMessages messages
 
     # This is an absurd intermediate step to illustrate calling to the service
     # for crypto functions.
-    # NOTE: This breaks the batch-ness of store.loadMany, which is bad.
     _processMessages: (messages) ->
       if messages instanceof Array
         @socket.emit 'decryptish', (_.pluck messages, 'message'), (cleartext) ->
@@ -39,7 +59,8 @@ define ['use!libs/socket.io', 'emberdata'], (io) ->
 
 
     ###
-    Begin DS.Adapter overrides that must/should be implemented
+    Begin DS.Adapter overrides that must/should be implemented.
+    (See the base class for details.)
     ###
 
     find: (store, type, id) ->
