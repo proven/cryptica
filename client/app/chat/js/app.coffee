@@ -37,9 +37,9 @@ define ['order!jquery', 'order!ember', 'order!emberdata', 'cs!cryptica-datastore
     content: []
 
     init: ->
+      @_super()
       # Start out by getting all records from the server
       @set 'content', App.store.findAll(@type)
-      @_super()
 
     # Gets called whenever the content changes.
     arrayDidChange: (start, removeCount, addCount) ->
