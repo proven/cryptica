@@ -28,6 +28,7 @@ require.config({
   deps: [
     'jquery',
     'ember',
+    'emberdata',
     'use!libs/underscore.min',
     'bootstrap'
   ]

@@ -2,7 +2,7 @@
 Create the Ember app and get it going.
 ###
 
-define ['order!jquery', 'order!ember', 'order!emberdata', 'cs!cryptica-datastore-adapter'], ($) ->
+define ['cs!cryptica-datastore-adapter'], ($) ->
 
   # Create the Cryptica-specific adapater and the datastore that uses it
   adapter = DS.CrypticaAdapter.create()

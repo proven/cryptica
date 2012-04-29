@@ -5,7 +5,7 @@
 @license MIT
 ###
 
-define ['use!libs/socket.io', 'emberdata'], (io) ->
+define ['use!libs/socket.io'], (io) ->
 
   ###
   The Ember-Data Adapter subclass that provides Ember with communication to the
