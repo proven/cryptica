@@ -13,10 +13,9 @@ require.config({
     text: 'libs/require/text',
     cs: 'libs/require/cs',
     order: 'libs/require/order',
-    use: 'libs/require/use'
+    use: 'libs/require/use',
+    bootstrap: '/css/bootstrap/js/bootstrap'
   },
-  priority: ['jquery'],
-  deps: ['ember', 'use!libs/underscore.min'],
   use: {
     'libs/socket.io': {
       attach: 'io'
@@ -24,10 +23,17 @@ require.config({
     'libs/underscore.min': {
       attach: '_'
     }
-  }
+  },
+  priority: ['jquery'],
+  deps: [
+    'jquery',
+    'ember',
+    'use!libs/underscore.min',
+    'bootstrap'
+  ]
 });
 
 // Get our app running
-require(['cs!app'], function () {
-  console.log('app loaded');
-});
+require([
+  'cs!app'
+  ]);

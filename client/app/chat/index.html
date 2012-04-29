@@ -13,6 +13,7 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css?v=2">
 
   <!--[if lt IE 9]>
@@ -20,17 +21,25 @@
   <![endif]-->
 </head>
 <body>
-  <script type="text/x-handlebars">
-    {{#view App.MyView}}
-      <h1>Chat messages</h1>
-      {{view App.MessagesView}}
-    {{/view}}
-  </script>
+
+  <div id="content" class="container">
+
+    <script type="text/x-handlebars">
+      {{#view App.MyView}}
+        <h1>Chat messages</h1>
+        {{view App.MessagesView}}
+      {{/view}}
+    </script>
+
+  </div>
 
   <script data-template-name="chat-messages" type="text/x-handlebars">
-    {{#each messages}}
-      <li>{{id}}: {{userID}}: {{message}}</li>
-    {{/each}}
+    <dl class="dl-horizontal">
+      {{#each messages}}
+        <dt>{{id}}:{{userID}}</dt>
+        <dd>{{message}}</dd>
+      {{/each}}
+    </dl>
   </script>
 
   <script data-main="js/main.js" src="js/libs/require/require.js"></script>

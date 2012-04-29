@@ -30,6 +30,8 @@ Witness the awesome messages start showing up.
 * [RequireJS](http://requirejs.org/)
   * `text` plugin
   * `cs` plugin (CoffeeScript)
+  
+* Probably should switch to [Brunch](http://brunch.io/). Probably right about the time we start needing to compile Stylus/LESS (or sooner).
 
 ### Helpers
 
