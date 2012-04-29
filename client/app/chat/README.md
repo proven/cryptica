@@ -43,11 +43,18 @@ Witness the awesome messages start showing up.
 
 ## Potentially useful links
 
-* [ember-bootstrap](https://github.com/jzajpt/ember-bootstrap): "A set of UI elements styled using Twitter Boostrap toolkit to use with Ember.js"
+* UI toolkits
 
-* [flame.js](https://github.com/flamejs/flame.js): "widget/UI library for Ember.js". Interesting, but I really don't like how it encourages hardcoding the layout into the JS code (although there is a pull request for better Handlebars integration).
+  * [ember-bootstrap](https://github.com/jzajpt/ember-bootstrap): "A set of UI elements styled using Twitter Boostrap toolkit to use with Ember.js"
 
-* [Using Ember.js with jQuery UI](http://www.lukemelia.com/blog/archives/2012/03/10/using-ember-js-with-jquery-ui/): The links at the bottom are the particularly interesting part -- the rest is general Ember stuff.
+  * [flame.js](https://github.com/flamejs/flame.js): "widget/UI library for Ember.js". Interesting, but I really don't like how it encourages hardcoding the layout into the JS code (although there is a pull request for better Handlebars integration).
+
+  * [Using Ember.js with jQuery UI](http://www.lukemelia.com/blog/archives/2012/03/10/using-ember-js-with-jquery-ui/): The links at the bottom are the particularly interesting part -- the rest is general Ember stuff.
+
+* Testing
+
+  * [Testing Ember and the Runloop](http://www.thesoftwaresimpleton.com/blog/2012/04/03/testing-ember-and-the-runloop/)
+
 
 * [emberjs-addons](https://github.com/emberjs-addons) github organization. Still a lot of projects that use Sproutcore terminology, but it looks like many are for Ember.
 
