@@ -1,5 +1,8 @@
 # Client App Notes
 
+* auto-gen TOC: 
+{:toc}
+
 ## Try it out
 
 Run the test server:
