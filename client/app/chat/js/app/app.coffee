@@ -83,14 +83,12 @@ define ['cs!app/cryptica-datastore-adapter'], ->
     templateName: 'login'
 
     username: null
-    usernameError: no
+    usernameError: (-> return not @get 'username').property 'username'
 
     submitLogin: (event) ->
       event.preventDefault()
-      if not @get 'username'
-        @set 'usernameError', yes
-        return
       console.log 'submitLogin clicked'
+      return if @get 'usernameError'
       App.routeManager.send 'login', @
 
 

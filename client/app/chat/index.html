@@ -57,7 +57,7 @@
       <div>
         <form>
           <fieldset>
-            <div class="control-group" {{bindAttr class="usernameError:error"}}>
+            <div {{bindAttr class=":control-group usernameError:error"}}>
               <div class="controls">
                 {{view Ember.TextField class="span3" placeholder="Username" valueBinding="username"}}
               </div>
