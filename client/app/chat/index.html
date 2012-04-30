@@ -51,32 +51,48 @@
   </script>
 
   <script data-template-name="login" type="text/x-handlebars">
-    <div class="offset4 span4">
-    <h1>Login</h1><br/>
-    <fieldset>
-      <div class="control-group">
-        <div class="controls">
-          {{view Ember.TextField class="input-xlarge" placeholder="Username" valueBinding="username"}}
-        </div>
+    <div class="offset4 span3">
+      <h1>Login</h1>
+      <br/>
+      <div>
+        <form>
+          <fieldset>
+            <div class="control-group" {{bindAttr class="usernameError:error"}}>
+              <div class="controls">
+                {{view Ember.TextField class="span3" placeholder="Username" valueBinding="username"}}
+              </div>
+            </div>
+            <div class="form-actions">
+              <button {{action "submitLogin"}} class="btn btn-primary btn-large">
+                Go Go
+              </button>
+            </div>
+          </fieldset>
+        </form>
       </div>
-      <div class="form-actions">
-        <button {{action "submitLogin"}} type="submit" class="btn btn-primary">
-          Go Go
-        </button>
-      </div>
-    </fieldset>
     </div>
   </script>
 
   <script data-template-name="chat-messages" type="text/x-handlebars">
-    <dl class="dl-horizontal">
-      {{#each messages}}
-        <dt>{{id}}:{{userID}}</dt>
-        <dd>{{message}}</dd>
-      {{/each}}
-    </dl>
+    <div class="offset3 span6">
+      <div>
+        <dl class="dl-horizontal">
+          {{#each messages}}
+            <dt>{{userID}}</dt>
+            <dd>{{message}}</dd>
+          {{/each}}
+        </dl>
+      </div>
+      <div>
+        <form class="well form-inline">
+          {{view Ember.TextField class="span4" placeholder="New message" valueBinding="newMessage"}}
+          <button {{action "submitMessage"}} class="btn btn-primary btn-large">Send</buton>
+        </form>
+      </div>
+    </div>
   </script>
 
+  <script src="js/libs/jquery-1.7.2.min.js"></script>
   <script data-main="js/main.js" src="js/libs/require/require.js"></script>
 </body>
 </html>

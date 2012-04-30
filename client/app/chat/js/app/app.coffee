@@ -83,19 +83,29 @@ define ['cs!app/cryptica-datastore-adapter'], ->
     templateName: 'login'
 
     username: null
+    usernameError: no
 
-    submitLogin: ->
-      if not @get('username')
-        @.$('fieldset .control-group:nth-child(1)').addClass('error')
+    submitLogin: (event) ->
+      event.preventDefault()
+      if not @get 'username'
+        @set 'usernameError', yes
         return
       console.log 'submitLogin clicked'
       App.routeManager.send 'login', @
 
 
   # The messages list view
-  App.HomeView = Ember.View.extend
+  App.MessagesView = Ember.View.extend
     templateName: 'chat-messages'
     messagesBinding: 'App.messages'
+
+    newMessage: null
+
+    submitMessage: (event) ->
+      event.preventDefault()
+      if not @get 'newMessage'
+        return
+      console.log 'TODO: send this: '+ @get 'newMessage'
 
 
   ###
@@ -111,13 +121,13 @@ define ['cs!app/cryptica-datastore-adapter'], ->
       route: '' # root
       login: (manager, context) ->
         username = context.get 'username'
-        console.log 'home state login action; username: ' + username
+        console.log 'login username: ' + username
         App.mainController.set 'username', username
-        App.routeManager.set 'location', 'home'
+        App.routeManager.set 'location', 'messages'
 
-    home: Ember.LayoutState.create
-      viewClass: App.HomeView
-      route: 'home'
+    messages: Ember.LayoutState.create
+      viewClass: App.MessagesView
+      route: 'messages'
 
 
   App.routeManager.start()
