@@ -19,19 +19,54 @@
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+
+  <style>
+    /* Most of these styles are temporary hacks only */
+    body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+  </style>
+
 </head>
 <body>
 
-  <div id="content" class="container">
 
-    <script type="text/x-handlebars">
-      {{#view App.MyView}}
-        <h1>Chat messages</h1>
-        {{view App.MessagesView}}
-      {{/view}}
-    </script>
+  <script data-template-name="main" type="text/x-handlebars">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Cryptica Chat</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="home"><a href="#">Home</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-  </div>
+    <div id="content" class="container">
+      {{dynamicView}}
+    </div>
+  </script>
+
+  <script data-template-name="login" type="text/x-handlebars">
+    <div class="offset4 span4">
+    <h1>Login</h1><br/>
+    <fieldset>
+      <div class="control-group">
+        <div class="controls">
+          {{view Ember.TextField class="input-xlarge" placeholder="Username" valueBinding="username"}}
+        </div>
+      </div>
+      <div class="form-actions">
+        <button {{action "submitLogin"}} type="submit" class="btn btn-primary">
+          Go Go
+        </button>
+      </div>
+    </fieldset>
+    </div>
+  </script>
 
   <script data-template-name="chat-messages" type="text/x-handlebars">
     <dl class="dl-horizontal">

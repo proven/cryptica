@@ -9,6 +9,8 @@ require.config({
     jquery: 'libs/jquery-1.7.2.min',
     ember: 'libs/ember-0.9.7.1',
     emberdata: 'libs/ember-data',
+    emberlayout: 'libs/ember-layout',
+    emberroutemanager: 'libs/ember-routemanager',
     CoffeeScript: 'libs/require/CoffeeScript',
     text: 'libs/require/text',
     cs: 'libs/require/cs',
@@ -24,17 +26,18 @@ require.config({
       attach: '_'
     }
   },
-  priority: ['jquery'],
+  priority: ['jquery', 'ember'],
   deps: [
     'jquery',
     'ember',
     'emberdata',
+    'emberlayout',
+    'emberroutemanager',
     'use!libs/underscore.min',
     'bootstrap'
   ]
 });
 
 // Get our app running
-require([
-  'cs!app'
-  ]);
+require(['cs!app/app'], function() {
+});

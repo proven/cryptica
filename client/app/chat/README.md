@@ -10,6 +10,10 @@ In your browser, go to [http://localhost:3000](http://localhost:3000)
 
 Witness the awesome messages start showing up.
 
+## Notes
+
+* The templates shouldn't all be in index.html, but I'm not yet sure about external templates. It's a bit unpleasant to load them with RequireJS (exacerbated by CoffeeScript), but I'm not sure (yet) how/if to do it with Brunch or whatever.
+
 ## Technology Stack
 
 ### Communcation
