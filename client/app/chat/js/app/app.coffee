@@ -2,7 +2,7 @@
 Create the Ember app and get it going.
 ###
 
-define ['cs!app/cryptica-datastore-adapter'], ->
+define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
 
   # Create the Cryptica-specific adapater and the datastore that uses it
   adapter = DS.CrypticaAdapter.create()
@@ -98,6 +98,19 @@ define ['cs!app/cryptica-datastore-adapter'], ->
     messagesBinding: 'App.messages'
 
     newMessage: null
+
+    didInsertElement: ->
+      placeFooter = ->
+        console.log 'placefooter!'
+        windowHeight = $(window).height()
+        footerHeight = @$("#message-compose").height()
+        offset = parseInt(windowHeight) - parseInt(footerHeight)
+        @$("#message-compose").css "top", offset
+
+      $(window).resize -> placeFooter()
+
+      placeFooter()
+      @$("#message-compose").css "display", "inline"
 
     submitMessage: (event) ->
       event.preventDefault()

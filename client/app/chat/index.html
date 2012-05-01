@@ -83,7 +83,7 @@
           {{/each}}
         </dl>
       </div>
-      <div>
+      <div id="message-compose" style="position: absolute; display: none;">
         <form class="well form-inline">
           {{view Ember.TextField class="span4" placeholder="New message" valueBinding="newMessage"}}
           <button {{action "submitMessage"}} class="btn btn-primary btn-large">Send</buton>
