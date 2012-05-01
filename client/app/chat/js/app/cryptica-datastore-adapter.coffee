@@ -73,6 +73,8 @@ define ['use!libs/socket.io'], (io) ->
       @socket.emit 'findAll', (data) =>
         @_processMessages data
 
+    createRecord: (store, type, record) ->
+      console.log 'createRecord!'
 ###
     createRecord: (store, type, record) ->
       console.log 'DS.CrypticaAdapter#createRecord'

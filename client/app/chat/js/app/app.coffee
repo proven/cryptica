@@ -101,7 +101,6 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
 
     didInsertElement: ->
       placeFooter = ->
-        console.log 'placefooter!'
         windowHeight = $(window).height()
         footerHeight = @$("#message-compose").height()
         offset = parseInt(windowHeight) - parseInt(footerHeight)
@@ -116,7 +115,13 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
       event.preventDefault()
       if not @get 'newMessage'
         return
-      console.log 'TODO: send this: '+ @get 'newMessage'
+      console.log 'saving new message: ' + @get 'newMessage'
+      message =
+        userID: App.mainController.get 'username'
+        message: @get 'newMessage'
+      App.store.createRecord App.Message, message
+      App.store.commit()
+      @set 'newMessage', ''
 
 
   ###
