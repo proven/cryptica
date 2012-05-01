@@ -57,7 +57,7 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
 
     # Gets called whenever the content changes.
     arrayDidChange: (start, removeCount, addCount) ->
-      @_super.apply(@, arguments)
+      @_super.apply @, arguments
 
       # Some very rudimentary message count limiting
       length = @get('content').get('length')

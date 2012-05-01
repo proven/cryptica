@@ -1,5 +1,6 @@
-express = require('express')
-socketio = require('socket.io')
+express = require   'express'
+socketio = require 'socket.io'
+_ = require 'underscore'
 
 app = express.createServer()
 io = socketio.listen(app)
@@ -13,44 +14,82 @@ app.use '/', express.static(__dirname + '/')
 app.use '/css', express.static(__dirname + '/css')
 app.use '/js', express.static(__dirname + '/js')
 
-currentID = 0
-
 io.sockets.on 'connection', (socket) ->
 
-  postMessages = ->
-    messages = []
-    for i in [0...2]
-      messages.push
-        id: currentID++
-        user_id: 'userID'+currentID
-        message: 'pushed-message'+currentID
-    socket.emit 'newMessages', messages
-
-  interval = setInterval postMessages, 5000
+  clientConnected socket
 
   socket.on 'disconnect', ->
-    clearInterval interval
+    clientDisconnected()
+
+  socket.on 'find', ->
+    find.apply null, arguments
+
+  socket.on 'findMany', ->
+    findMany.apply null, arguments
+
+  socket.on 'findAll', ->
+    findAll.apply null, arguments
+
+  socket.on 'createRecord', ->
+    createRecord.apply null, arguments
+
+  socket.on 'decryptish', ->
+    decryptish.apply null, arguments
 
 
-  socket.on 'find', (id, callback) ->
-    console.log 'request: find: ' + id
-    callback
-      id: id
-      user_id: 'userID'+id
-      message: 'find-message'+id
+store =
+  message:
+    currentID: 1
+    content: []
 
-  socket.on 'findAll', (callback) ->
-    console.log 'request: findAll'
-    allObjs = []
-    for id in [0...5]
-      allObjs.push
-        id: id
-        user_id: 'userID'+id
-        message: 'findAll-message'+id
-    callback allObjs
+# Hack
+clientSocket = null
+interval = null
 
-  socket.on 'decryptish', (ciphertext, callback) ->
-    if ciphertext instanceof Array
-      callback ciphertext.map (ct) -> ct + '::decryptished'
-    else
-      callback ciphertext + '::decryptished'
+clientConnected = (socket) ->
+  console.log 'clientConnected'
+  clientSocket = socket
+
+  timeGuySays = ->
+    remoteNewRecords 'message', [{user_id: 'Time Guy', message: new Date().toLocaleString()}]
+  interval = setInterval timeGuySays, 5000
+
+clientDisconnected = ->
+  console.log 'clientDisconnected'
+  clearInterval interval if interval
+  interval = null
+  clientSocket = null
+
+decryptish = (ciphertext, callback) ->
+  if ciphertext instanceof Array
+    callback ciphertext.map (ct) -> ct + '?!'
+  else
+    callback ciphertext + '?!'
+
+find = (type, id, callback) ->
+  callback _.find store[type].content, (item) -> item.id == id
+
+findMany = (type, ids, callback) ->
+  callback _.filter store[type].content, (item) -> _.contains ids, item.id
+
+findAll = (type, callback) ->
+  callback store[type].content
+
+createRecord = (type, record, callback) ->
+  createRecords type, [record], (records) -> callback(_.first records)
+
+createRecords = (type, records, callback) ->
+  _.each records, (record) ->
+    record.id = store[type].currentID++
+    store[type].content.push record
+  callback(records)
+
+remoteNewRecords = (type, records) ->
+  # store in DB
+  _.each records, (record) ->
+    record.id = store[type].currentID++
+    store[type].content.push record
+  # tell client
+  if clientSocket
+    clientSocket.emit 'remoteNewRecords', type, records
+

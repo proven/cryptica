@@ -34,20 +34,22 @@ define ['use!libs/socket.io'], (io) ->
 
       # Create listeners for the notifications that the service might push down
       # to us.
-      @socket.on 'newMessages', => @_notify_messagesReceived.apply(@, arguments)
+      @socket.on 'remoteNewRecords', => @_notify_recordsReceived.apply @, arguments
 
-    ###
-    Called when a new message is received from the service
-    @param {array|object} messages A JS chat message object or array of objects
-    @private
-    ###
-    _notify_messagesReceived: (messages) ->
-        @_processMessages messages
+    _modelToApiType: (model) ->
+      return 'message' if model.toString() == '.Message'
+      throw new Exception 'unmatched model'
+
+    # Called when new records are received from the service
+    _notify_recordsReceived: (type, records) ->
+        @_processMessages records
 
     # This is an absurd intermediate step to illustrate calling to the service
     # for crypto functions.
     _processMessages: (messages) ->
+      return if not messages
       if messages instanceof Array
+        return if messages.length == 0
         @socket.emit 'decryptish', (_.pluck messages, 'message'), (cleartext) ->
           _.each messages, (element, index) ->
             element['message'] = cleartext[index]
@@ -62,19 +64,30 @@ define ['use!libs/socket.io'], (io) ->
     Begin DS.Adapter overrides that must/should be implemented.
     (See the base class for details.)
     ###
+    ###
+    TODO:
+      * Handle errors
+    ###
 
     find: (store, type, id) ->
       console.log 'calling find'
-      @socket.emit 'find', id, (data) =>
-        @_processMessages data
+      @socket.emit 'find', @_modelToApiType(type), id, (response) =>
+        @_processMessages response if response
+
+    findMany: (store, type, ids) ->
+      console.log 'calling findMany'
+      @socket.emit 'findMany', @_modelToApiType(type), ids, (response) =>
+        @_processMessages response if response
 
     findAll: (store, type) ->
       console.log 'calling findAll'
-      @socket.emit 'findAll', (data) =>
-        @_processMessages data
+      @socket.emit 'findAll', @_modelToApiType(type), (response) =>
+        @_processMessages response if response
 
     createRecord: (store, type, record) ->
-      console.log 'createRecord!'
+      console.log 'calling createRecord'
+      @socket.emit 'createRecord', @_modelToApiType(type), record, (response) =>
+        store.didCreateRecord(record, response);
 ###
     createRecord: (store, type, record) ->
       console.log 'DS.CrypticaAdapter#createRecord'
