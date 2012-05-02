@@ -86,7 +86,10 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
     usernameError: (-> return not @get 'username').property 'username'
 
     didInsertElement: ->
-      _.delay((=> @$('input[type=text]:first').focus()), 1)
+      # _.defer is not strictly needed here -- it seems to function correctly
+      # without it. It is needed in other views, though, so I'm putting it here
+      # for consistency.
+      _.defer(=> @$('input[type=text]:first').focus())
 
     submitLogin: (event) ->
       event.preventDefault()
@@ -103,7 +106,9 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
     newMessage: null
 
     didInsertElement: ->
-      _.delay((=> @$('input[type=text]:first').focus()), 1)
+      # I don't know why the _.defer is necessary, but it seems to be. Otherwise
+      # the focus just won't be set.
+      _.defer(=> @$('input[type=text]:first').focus())
 
       placeFooter = ->
         windowHeight = $(window).height()
@@ -152,7 +157,6 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
 
 
   App.routeManager.start()
-
 
 
   return window.App = App
