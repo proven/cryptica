@@ -36,7 +36,7 @@ define ['use!libs/socket.io'], (io) ->
       # to us.
       @socket.on 'remoteNewRecords', => @_notify_recordsReceived.apply @, arguments
 
-    _modelToApiType: (model) ->
+    modelToApiType: (model) ->
       return 'message' if model.toString() == '.Message'
       throw new Exception 'unmatched model'
 
@@ -71,22 +71,22 @@ define ['use!libs/socket.io'], (io) ->
 
     find: (store, type, id) ->
       console.log 'calling find'
-      @socket.emit 'find', @_modelToApiType(type), id, (response) =>
+      @socket.emit 'find', @modelToApiType(type), id, (response) =>
         @_processMessages response if response
 
     findMany: (store, type, ids) ->
       console.log 'calling findMany'
-      @socket.emit 'findMany', @_modelToApiType(type), ids, (response) =>
+      @socket.emit 'findMany', @modelToApiType(type), ids, (response) =>
         @_processMessages response if response
 
     findAll: (store, type) ->
       console.log 'calling findAll'
-      @socket.emit 'findAll', @_modelToApiType(type), (response) =>
+      @socket.emit 'findAll', @modelToApiType(type), (response) =>
         @_processMessages response if response
 
     createRecord: (store, type, record) ->
       console.log 'calling createRecord'
-      @socket.emit 'createRecord', @_modelToApiType(type), record, (response) =>
+      @socket.emit 'createRecord', @modelToApiType(type), record, (response) =>
         store.didCreateRecord(record, response);
 ###
     createRecord: (store, type, record) ->
