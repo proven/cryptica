@@ -85,6 +85,10 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
     username: null
     usernameError: (-> return not @get 'username').property 'username'
 
+    didInsertElement: ->
+      @_super()
+      @$('input[type=text]:first').focus()
+
     submitLogin: (event) ->
       event.preventDefault()
       console.log 'submitLogin clicked'
@@ -100,6 +104,9 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
     newMessage: null
 
     didInsertElement: ->
+      @_super()
+      @$('input[type=text]:first').focus() # doesn't work?
+
       placeFooter = ->
         windowHeight = $(window).height()
         footerHeight = @$("#message-compose").height()
