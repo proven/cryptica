@@ -151,6 +151,12 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
         App.mainController.set 'username', username
         App.routeManager.set 'location', 'messages'
 
+    about: Ember.LayoutState.create
+      viewClass: Ember.View.extend
+        templateName: 'about'
+      route: 'about'
+
+
     messages: Ember.LayoutState.create
       viewClass: App.MessagesView
       route: 'messages'

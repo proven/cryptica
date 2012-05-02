@@ -13,8 +13,6 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css?v=2">
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,6 +25,9 @@
     }
   </style>
 
+  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
+
 </head>
 <body>
 
@@ -34,41 +35,57 @@
   <script data-template-name="main" type="text/x-handlebars">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
           <a class="brand" href="#">Cryptica Chat</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="home"><a href="#">Home</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
-    <div id="content" class="container">
-      {{dynamicView}}
+    <div id="content" class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+        </div>
+        <div class="span10">
+          {{dynamicView}}
+        </div>
+      </div>
     </div>
   </script>
 
   <script data-template-name="login" type="text/x-handlebars">
-    <div class="offset4 span3">
-      <h1>Login</h1>
-      <br/>
-      <div>
-        <form>
-          <fieldset>
-            <div {{bindAttr class=":control-group usernameError:error"}}>
-              <div class="controls">
-                {{view Ember.TextField class="span3" placeholder="Username" valueBinding="username"}}
+    <div class="row-fluid">
+    <h1>Login</h1>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">&nbsp;</div>
+      <div class="span10">
+        <div class="span5">
+          <form>
+            <fieldset>
+              <div {{bindAttr class=":control-group usernameError:error"}}>
+                <div class="controls" >
+                  {{view Ember.TextField class="span12" placeholder="Username" valueBinding="username"}}
+                </div>
               </div>
-            </div>
-            <div class="form-actions">
-              <button {{action "submitLogin"}} class="btn btn-primary btn-large">
-                Go Go
-              </button>
-            </div>
-          </fieldset>
-        </form>
+              <div class="form-actions">
+                <button {{action "submitLogin"}} class="btn btn-primary btn-large">
+                  Go Go
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
   </script>
@@ -86,9 +103,20 @@
       <div id="message-compose" style="position: absolute; display: none;">
         <form class="well form-inline">
           {{view Ember.TextField class="span4" placeholder="New message" valueBinding="newMessage"}}
-          <button {{action "submitMessage"}} class="btn btn-primary btn-large">Send</buton>
+          <button {{action "submitMessage"}} class="btn btn-primary btn-large">Send</button>
         </form>
       </div>
+    </div>
+  </script>
+
+  <script data-template-name="about" type="text/x-handlebars">
+    <div class="hero-unit">
+      <h1>Welcome to Cryptica</h1>
+      <br/>
+      <p>
+        Developed by <a href="http://www.provensecuritysolutions.com">Proven Security Solutions Inc.</a>
+      </p>
+      <p>More about text at some future time.</p>
     </div>
   </script>
 
