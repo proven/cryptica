@@ -91,20 +91,24 @@
   </script>
 
   <script data-template-name="chat-messages" type="text/x-handlebars">
-    <div class="offset3 span6">
-      <div>
-        <dl class="dl-horizontal">
-          {{#each messages}}
-            <dt>{{userID}}</dt>
-            <dd>{{message}}</dd>
-          {{/each}}
-        </dl>
-      </div>
-      <div id="message-compose" style="position: absolute; display: none;">
-        <form class="well form-inline">
-          {{view Ember.TextField class="span4" placeholder="New message" valueBinding="newMessage"}}
-          <button {{action "submitMessage"}} class="btn btn-primary btn-large">Send</button>
-        </form>
+    <div class="row-fluid">
+      <div class="span6">
+        <div>
+          <dl class="dl-horizontal">
+            {{#each messages}}
+              <dt>{{userID}}</dt>
+              <dd>{{message}}</dd>
+            {{/each}}
+          </dl>
+        </div>
+        <div>
+          <div id="message-compose" style="position: absolute; display: none;">
+            <form class="well form-inline">
+              {{view Ember.TextField placeholder="New message" valueBinding="newMessage" class="input-xlarge"}}
+              <button {{action "submitMessage"}} class="btn btn-primary btn-large">Send</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </script>
