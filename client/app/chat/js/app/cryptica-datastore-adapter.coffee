@@ -25,7 +25,7 @@ define ['use!libs/socket.io'], (io) ->
       @_super.apply(@, arguments)
 
       # Create our connection to the Cryptica service
-      @socket = io.connect('http://localhost:3000')
+      @socket = io.connect()
 
       # Note that we don't have to wait to receive `'connect'` before we start
       # setting up our listeners or even start emitting.

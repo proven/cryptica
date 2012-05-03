@@ -1,4 +1,4 @@
-express = require   'express'
+express = require 'express'
 socketio = require 'socket.io'
 _ = require 'underscore'
 
