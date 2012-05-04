@@ -7,7 +7,7 @@ require.config({
   baseUrl: 'js/',
   paths: {
     jquery: 'libs/jquery-1.7.2.min',
-    ember: 'libs/ember-0.9.7.1',
+    ember: 'libs/ember-latest',
     emberdata: 'libs/ember-data',
     emberlayout: 'libs/ember-layout',
     emberroutemanager: 'libs/ember-routemanager',
