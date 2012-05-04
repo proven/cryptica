@@ -60,12 +60,15 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
       @_super.apply @, arguments
 
       # Some very rudimentary message count limiting
+      LENGTH_LIMIT = 3
       length = @get('content').get('length')
-      if length > 10
-        # Maybe instead of calling this directly in this event handler we should
-        # queue it until after Ember has finished its render cycle with:
-        # `Ember.run.schedule('render', ...)`?
-        @get('content').removeAt 0, 5
+      if length > LENGTH_LIMIT
+        # Queue the array resizing until after the current run loop is complete.
+        # If this isn't done, there will be an error due to items being removed
+        # that are expected to be rendered. (Causes a DOM error.)
+        # Maybe `'render'` should be specified as the queue?
+        Ember.run.schedule ->
+          @get('content').removeAt(0, (length-LENGTH_LIMIT))
 
 
   ###
@@ -133,7 +136,6 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
       App.store.commit()
       @set 'newMessage', ''
 
-
   ###
   Route/State Manager(s)
   TODO: Separate files?
@@ -155,7 +157,6 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
       viewClass: Ember.View.extend
         templateName: 'about'
       route: 'about'
-
 
     messages: Ember.LayoutState.create
       viewClass: App.MessagesView
