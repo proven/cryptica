@@ -67,7 +67,7 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
         # If this isn't done, there will be an error due to items being removed
         # that are expected to be rendered. (Causes a DOM error.)
         # Maybe `'render'` should be specified as the queue?
-        Ember.run.schedule ->
+        Ember.run.schedule 'timers', =>
           @get('content').removeAt(0, (length-LENGTH_LIMIT))
 
 
