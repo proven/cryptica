@@ -134,10 +134,13 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
         # they're reading messages above.
         $messagesList = @$('.messages-list')
         return if not $messagesList? or $messagesList.length == 0
-        avgItemHeight = Math.ceil($messagesList[0].scrollHeight / @get('messages').get('length'))
-        atBottom = (($messagesList[0].scrollHeight - $messagesList.scrollTop() - avgItemHeight) <= $messagesList.outerHeight())
-        if atBottom then $messagesList.scrollTop($messagesList[0].scrollHeight)
+        lastItemHeight = $messagesList.find('.chat-message-item:last').outerHeight()
+        atBottom = (($messagesList[0].scrollHeight - $messagesList.scrollTop() - lastItemHeight) <= $messagesList.outerHeight())
+        if atBottom then _.defer => $messagesList.scrollTop($messagesList[0].scrollHeight)
       ).observes 'messages.@each'
+
+  App.MessageItemView = Ember.View.extend({})
+
 
 
   ###

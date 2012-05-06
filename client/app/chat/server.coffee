@@ -59,6 +59,9 @@ timeGuySays = ->
   remoteNewRecords 'message', [{user_id: 'Time Guy', message: new Date().toLocaleString()}]
 interval = setInterval timeGuySays, 5000
 
+serverDelay = (next) ->
+  _.delay next, 1000
+
 
 class ClientHandler
   constructor: (@socket) ->
@@ -76,22 +79,27 @@ class ClientHandler
       callback ciphertext + '?!'
 
   find: (type, id, callback) =>
-    callback _.find store[type].content, (item) -> item.id == id
+    serverDelay =>
+      callback _.find store[type].content, (item) -> item.id == id
 
   findMany: (type, ids, callback) =>
-    callback _.filter store[type].content, (item) -> _.contains ids, item.id
+    serverDelay =>
+      callback _.filter store[type].content, (item) -> _.contains ids, item.id
 
   findAll: (type, callback) =>
-    callback store[type].content
+    serverDelay =>
+      callback store[type].content
 
   createRecord: (type, record, callback) =>
-    @createRecords type, [record], (records) -> callback(_.first records)
+    serverDelay =>
+      @createRecords type, [record], (records) -> callback(_.first records)
 
   createRecords: (type, records, callback) =>
-    _.each records, (record) ->
-      record.id = store[type].currentID++
-      store[type].content.push record
-    callback(records)
+    serverDelay =>
+      _.each records, (record) ->
+        record.id = store[type].currentID++
+        store[type].content.push record
+      callback(records)
 
   remoteNewRecords: (type, records) =>
     @socket.emit 'remoteNewRecords', type, records

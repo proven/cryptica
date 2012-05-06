@@ -23,6 +23,24 @@
     body {
       padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
     }
+
+    .is-dirty {
+      background-color: yellow;
+    }
+
+    .chat-message-item {
+      padding-bottom: 3px;
+    }
+
+    .chat-message-userid {
+      font-weight: bold;
+      text-align: right;
+      text-overflow: ellipsis;
+    }
+
+    .chat-message-content {
+      text-overflow:
+    }
   </style>
 
   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
@@ -92,14 +110,16 @@
 
   <script data-template-name="chat-messages" type="text/x-handlebars">
     <div class="row-fluid">
-      <div class="span6">
+      <div class="span8">
         <div class="messages-list" style="height: 200px; overflow-y: scroll;">
-          <dl class="dl-horizontal">
-            {{#each messages}}
-              <dt>{{userID}}</dt>
-              <dd>{{message}}</dd>
-            {{/each}}
-          </dl>
+          {{#each messages}}
+            {{#view App.MessageItemView contentBinding="this"}}
+              <div {{bindAttr class="content.isDirty :row-fluid :chat-message-item"}}>
+                <div class="span3 chat-message-userid">{{content.userID}}</div>
+                <div class="chat-message-content span9">{{content.message}}</div>
+              </div>
+            {{/view}}
+          {{/each}}
         </div>
         <div>
           <div id="message-compose" style="position: absolute; display: none;">
