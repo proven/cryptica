@@ -59,17 +59,6 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
     arrayDidChange: (start, removeCount, addCount) ->
       @_super.apply @, arguments
 
-      # Some very rudimentary message count limiting
-      LENGTH_LIMIT = 3
-      length = @get('content').get('length')
-      if length > LENGTH_LIMIT
-        # Queue the array resizing until after the current run loop is complete.
-        # If this isn't done, there will be an error due to items being removed
-        # that are expected to be rendered. (Causes a DOM error.)
-        # Maybe `'render'` should be specified as the queue?
-        Ember.run.schedule 'timers', =>
-          @get('content').removeAt(0, (length-LENGTH_LIMIT))
-
 
   ###
   Views
@@ -135,6 +124,18 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
       App.store.createRecord App.Message, message
       App.store.commit()
       @set 'newMessage', ''
+
+    messagesDidChange: (->
+        # When a messages is added, scroll to the bottom if the scroll position
+        # is already at (or very near) the bottom. Don't jump the user down if
+        # they're reading messages above.
+        $messagesList = @$('.messages-list')
+        return if not $messagesList? or $messagesList.length == 0
+        avgItemHeight = Math.ceil($messagesList[0].scrollHeight / @get('messages').get('length'))
+        atBottom = (($messagesList[0].scrollHeight - $messagesList.scrollTop() - avgItemHeight) <= $messagesList.outerHeight())
+        if atBottom then $messagesList.scrollTop($messagesList[0].scrollHeight)
+      ).observes 'messages.@each'
+
 
   ###
   Route/State Manager(s)
