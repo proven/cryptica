@@ -29,6 +29,7 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
   App.Message = DS.Model.extend
     userID: DS.attr('string')
     message: DS.attr('string')
+    createdDate: DS.attr('date')
 
 
   ###
@@ -58,6 +59,15 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
     # Gets called whenever the content changes.
     arrayDidChange: (start, removeCount, addCount) ->
       @_super.apply @, arguments
+
+    createNew: (messageText) ->
+      console.log 'saving new message: ' + messageText
+      message =
+        userID: App.mainController.get 'username'
+        message: messageText
+        createdDate: new Date()
+      App.store.createRecord App.Message, message
+      App.store.commit()
 
 
   ###
@@ -120,12 +130,7 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
       event.preventDefault()
       if not @get 'newMessage'
         return
-      console.log 'saving new message: ' + @get 'newMessage'
-      message =
-        userID: App.mainController.get 'username'
-        message: @get 'newMessage'
-      App.store.createRecord App.Message, message
-      App.store.commit()
+      App.routeManager.send 'createNewMessage', @get 'newMessage'
       @set 'newMessage', ''
 
     messagesDidChange: (->
@@ -139,7 +144,15 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
         if atBottom then _.defer => $messagesList.scrollTop($messagesList[0].scrollHeight)
       ).observes 'messages.@each'
 
-  App.MessageItemView = Ember.View.extend({})
+  App.MessageItemView = Ember.View.extend
+    isoCreatedDate: (->
+        @get('content').get('createdDate').toISOString()
+      ).property('content.createdDate')
+
+    didInsertElement: ->
+      @$('.chat-message-date').timeago()
+
+
 
 
 
@@ -168,6 +181,9 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
     messages: Ember.LayoutState.create
       viewClass: App.MessagesView
       route: 'messages'
+
+      createNewMessage: (manager, messageText) ->
+        App.messages.createNew messageText
 
 
   App.routeManager.start()

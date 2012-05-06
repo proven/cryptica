@@ -55,9 +55,9 @@ remoteNewRecords = (type, records) ->
   # tell clients
   remoteNewRecordsEmitter.emit 'remoteNewRecords', type, records
 
-timeGuySays = ->
-  remoteNewRecords 'message', [{user_id: 'Time Guy', message: new Date().toLocaleString()}]
-interval = setInterval timeGuySays, 5000
+boringGuySays = ->
+  remoteNewRecords 'message', [{user_id: 'Time Guy', message: "Hi again", created_date: new Date()}]
+interval = setInterval boringGuySays, 5000
 
 serverDelay = (next) ->
   _.delay next, 1000

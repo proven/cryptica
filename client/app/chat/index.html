@@ -39,7 +39,10 @@
     }
 
     .chat-message-content {
-      text-overflow:
+    }
+
+    .chat-message-date {
+      font-size: 0.8em;
     }
   </style>
 
@@ -116,7 +119,8 @@
             {{#view App.MessageItemView contentBinding="this"}}
               <div {{bindAttr class="content.isDirty :row-fluid :chat-message-item"}}>
                 <div class="span3 chat-message-userid">{{content.userID}}</div>
-                <div class="chat-message-content span9">{{content.message}}</div>
+                <div class="span7 chat-message-content">{{content.message}}</div>
+                <abbr class="span2 chat-message-date timeago" {{bindAttr title="isoCreatedDate"}}></abbr>
               </div>
             {{/view}}
           {{/each}}

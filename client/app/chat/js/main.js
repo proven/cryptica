@@ -29,6 +29,7 @@ require.config({
   priority: ['jquery', 'ember'],
   deps: [
     'jquery',
+    'libs/jquery.timeago',
     'ember',
     'emberdata',
     'emberlayout',
