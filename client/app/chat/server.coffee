@@ -50,6 +50,8 @@ remoteNewRecords = (type, records) ->
   _.each records, (record) ->
     record.id = store[type].currentID++
     store[type].content.push record
+  # Limit the length of the record store
+  store[type].content = _.last store[type].content, 100
   # tell clients
   remoteNewRecordsEmitter.emit 'remoteNewRecords', type, records
 
