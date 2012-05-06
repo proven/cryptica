@@ -102,6 +102,10 @@ define ['jquery', 'cs!app/cryptica-datastore-adapter'], ($) ->
       # the focus just won't be set.
       _.defer(=> @$('input[type=text]:first').focus())
 
+      # Scroll the messages list to the bottom to start.
+      $messagesList = @$('.messages-list')
+      $messagesList.scrollTop($messagesList[0].scrollHeight)
+
       placeFooter = ->
         windowHeight = $(window).height()
         footerHeight = @$("#message-compose").height()
