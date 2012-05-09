@@ -14,6 +14,10 @@ Witness the awesome messages start showing up.
 
 * The templates shouldn't all be in index.html, but I'm not yet sure about external templates. It's a bit unpleasant to load them with RequireJS (exacerbated by CoffeeScript), but I'm not sure (yet) how/if to do it with Brunch or whatever.
 
+* I think that having timeago update every chat message all the time is inefficient, possibly to the point of resource-intensive. Should turn it on and off depending on whether the time element is showing.
+  * So hook into on-scroll and on-resize? Or maybe there's a better way to detect in-view and out-of-view changes? jQuery plugin?
+
+
 ## Technology Stack
 
 ### Communcation
